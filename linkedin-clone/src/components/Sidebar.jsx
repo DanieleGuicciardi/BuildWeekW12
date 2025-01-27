@@ -60,8 +60,8 @@ const Sidebar = () => {
   return (
     <>
       {myProfile && (
-        <div className="border border-1 border-secondary-subtle rounded-2 p-2">
-          <Container>
+        <div className="border border-1 border-secondary-subtle rounded-2 p-2 nav-space">
+          <Container >
             <div className="d-flex justify-content-between">
               <div>
                 <h5>Lingua del profilo</h5>

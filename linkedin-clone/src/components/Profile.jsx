@@ -12,7 +12,7 @@ import {
 function Profile() {
   return (
     <Container
-      className="mt-5"
+      className=" nav-space"
       style={{
         maxWidth: "800px",
         backgroundColor: "#f9f9f9",

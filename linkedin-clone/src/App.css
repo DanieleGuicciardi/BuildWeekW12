@@ -28,4 +28,10 @@ button:hover {
   background-color: #c2c2c23e !important;
 }
 
+.dropdown-toggle{  
+  padding:0;
+}
 
+.nav-space{  
+  margin-top: 100px;
+}

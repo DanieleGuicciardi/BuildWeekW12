@@ -72,7 +72,7 @@ const MyNavbar = function () {
                 </Nav.Link>
               </div>
               {/* dropdown */}
-              <div className="text-lg-center me-2">
+              <div className="text-lg-center me-2 mt-2">
                 <div className="d-inline">
                   <i className="bi bi-person-circle fs-5"></i>
                 </div>
@@ -88,7 +88,7 @@ const MyNavbar = function () {
                 </NavDropdown>
               </div>
 
-              <div  className="text-lg-center">
+              <div  className="text-lg-center mt-2">
                 <div className="d-inline  " >
                   <i className="bi bi-border-all fs-5"></i>
                 </div >
