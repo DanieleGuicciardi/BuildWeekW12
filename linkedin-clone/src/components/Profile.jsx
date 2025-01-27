@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Container,
   Row,
@@ -11,7 +10,7 @@ import {
 
 function Profile() {
   return (
-    <Container
+    <Container fluid
       className="mt-5"
       style={{
         maxWidth: "800px",

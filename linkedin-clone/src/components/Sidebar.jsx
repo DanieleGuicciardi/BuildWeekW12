@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Pencil, PersonPlusFill } from "react-bootstrap-icons";
 
-const Sidebar = () => {
-  const [profile, setProfile] = useState("");
+const Sidebar = ({myProfile , profiles}) => {
+  {/*const [profile, setProfile] = useState("");
   const [myProfile, setMyProfile] = useState("");
 
   const getProfile = async () => {
@@ -55,7 +55,7 @@ const Sidebar = () => {
   useEffect(() => {
     getProfile();
     getMyProfile();
-  }, []);
+  }, []);*/}
 
   return (
     <>
@@ -84,21 +84,21 @@ const Sidebar = () => {
         </div>
       )}
 
-      {profile && (
+      {profiles && (
         <div className="border border-1 border-secondary-subtle rounded-2 p-2 mt-3">
           <Container>
             <h6>Persone che potresti conoscere</h6>
             <p className="text-secondary">Dal tuo settore</p>
             <div className="d-flex  align-items-start">
               <img
-                src={profile[0].image}
+                src={profiles[0].image}
                 alt="user image"
                 style={{ width: 50 }}
                 className="rounded-5"
               />
               <div className="d-flex flex-column align-items-baseline ms-3">
-                <h5>{profile[0].name}</h5>
-                <p>{profile[0].title}</p>
+                <h5>{profiles[0].name}</h5>
+                <p>{profiles[0].title}</p>
                 <button className="btn bg-white border rounded-4">
                   <PersonPlusFill className="mx-2" />
                   Collegati
@@ -108,14 +108,14 @@ const Sidebar = () => {
             <hr />
             <div className="d-flex  align-items-start">
               <img
-                src={profile[10].image}
+                src={profiles[10].image}
                 alt="user image"
                 style={{ width: 50 }}
                 className="rounded-5"
               />
               <div className="d-flex flex-column align-items-baseline ms-3">
-                <h5>{profile[10].name}</h5>
-                <p>{profile[10].title}</p>
+                <h5>{profiles[10].name}</h5>
+                <p>{profiles[10].title}</p>
                 <button className="btn bg-white border rounded-4">
                   <PersonPlusFill className="mx-2" />
                   Collegati
@@ -125,14 +125,14 @@ const Sidebar = () => {
             <hr />
             <div className="d-flex  align-items-start">
               <img
-                src={profile[2].image}
+                src={profiles[2].image}
                 alt="user image"
                 style={{ width: 50 }}
                 className="rounded-5"
               />
               <div className="d-flex flex-column align-items-baseline ms-3">
-                <h5>{profile[2].name}</h5>
-                <p>{profile[2].title}</p>
+                <h5>{profiles[2].name}</h5>
+                <p>{profiles[2].title}</p>
                 <button className="btn bg-white border rounded-4">
                   <PersonPlusFill className="mx-2" />
                   Collegati
@@ -142,14 +142,14 @@ const Sidebar = () => {
             <hr />
             <div className="d-flex  align-items-start">
               <img
-                src={profile[3].image}
+                src={profiles[3].image}
                 alt="user image"
                 style={{ width: 50 }}
                 className="rounded-5"
               />
               <div className="d-flex flex-column align-items-baseline ms-3">
-                <h5>{profile[3].name}</h5>
-                <p>{profile[3].title}</p>
+                <h5>{profiles[3].name}</h5>
+                <p>{profiles[3].title}</p>
                 <button className="btn bg-white border rounded-4">
                   <PersonPlusFill className="mx-2" />
                   Collegati
