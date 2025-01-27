@@ -7,7 +7,15 @@
 html,
 body {
   height: 100%;
-} /* minimal css reset */
+  background-color: #F4F2EE;
+}
+
+.logo-linkedin {
+  width: 50px;
+  }
+  .search{ 
+    background-color:#EDF3F7;
+   }
 
 .bi-pencil {
   cursor: pointer;
@@ -17,3 +25,4 @@ button:hover {
   border: 1px solid #000000 !important;
   background-color: #c2c2c23e !important;
 }
+

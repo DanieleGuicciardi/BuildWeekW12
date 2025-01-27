@@ -5,10 +5,12 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import Sidebar from "./components/Sidebar";
 import Profile from './components/Profile';
+import MyNavbar from './components/MyNavbar';
 
 function App() {
   return (
     <>
+      <MyNavbar/>
       <Container>
         <Row>
           <Col lg={8}>
@@ -19,7 +21,6 @@ function App() {
           </Col>
         </Row>
       </Container>
-
     </>
   );
 }
