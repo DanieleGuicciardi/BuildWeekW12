@@ -11,7 +11,6 @@ body {
   background-color: #f4f2ee;
 }
 
-
 .logo-linkedin {
   width: 50px;
 }
@@ -28,8 +27,15 @@ body {
   background-color: #c2c2c23e !important;
 }
 
-
 .mainContainer {
   margin-top: 100px !important;
+}
+
+.dropdown-toggle{  
+  padding:0;
+}
+
+.nav-space{  
+  margin-top: 100px;
 }
 
