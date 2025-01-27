@@ -30,3 +30,10 @@ body {
 .mainContainer {
   margin-top: 100px !important;
 }
+.dropdown-toggle {
+  padding: 0;
+}
+
+.nav-space {
+  margin-top: 100px;
+}
