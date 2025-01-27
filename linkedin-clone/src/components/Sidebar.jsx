@@ -60,7 +60,7 @@ const Sidebar = () => {
   return (
     <>
       {myProfile && (
-        <div className="border border-1 border-secondary-subtle rounded-2 p-2">
+        <div className="border border-1 border-secondary-subtle rounded-2 p-2 bg-white mt-5">
           <Container>
             <div className="d-flex justify-content-between">
               <div>
@@ -85,7 +85,7 @@ const Sidebar = () => {
       )}
 
       {profile && (
-        <div className="border border-1 border-secondary-subtle rounded-2 p-2 mt-3">
+        <div className="border border-1 border-secondary-subtle rounded-2 p-2 mt-3 bg-white">
           <Container>
             <h6>Persone che potresti conoscere</h6>
             <p className="text-secondary">Dal tuo settore</p>
@@ -99,8 +99,8 @@ const Sidebar = () => {
               <div className="d-flex flex-column align-items-baseline ms-3">
                 <h5>{profile[0].name}</h5>
                 <p>{profile[0].title}</p>
-                <button className="btn bg-white border rounded-4">
-                  <PersonPlusFill className="mx-2" />
+                <button className="btn bg-white border rounded-4 d-flex align-items-center">
+                  <PersonPlusFill className="me-2" />
                   Collegati
                 </button>
               </div>
@@ -116,8 +116,8 @@ const Sidebar = () => {
               <div className="d-flex flex-column align-items-baseline ms-3">
                 <h5>{profile[10].name}</h5>
                 <p>{profile[10].title}</p>
-                <button className="btn bg-white border rounded-4">
-                  <PersonPlusFill className="mx-2" />
+                <button className="btn bg-white border rounded-4 d-flex align-items-center">
+                  <PersonPlusFill className="me-2" />
                   Collegati
                 </button>
               </div>
@@ -133,8 +133,8 @@ const Sidebar = () => {
               <div className="d-flex flex-column align-items-baseline ms-3">
                 <h5>{profile[2].name}</h5>
                 <p>{profile[2].title}</p>
-                <button className="btn bg-white border rounded-4">
-                  <PersonPlusFill className="mx-2" />
+                <button className="btn bg-white border rounded-4 d-flex align-items-center">
+                  <PersonPlusFill className="me-2" />
                   Collegati
                 </button>
               </div>
@@ -150,8 +150,8 @@ const Sidebar = () => {
               <div className="d-flex flex-column align-items-baseline ms-3">
                 <h5>{profile[3].name}</h5>
                 <p>{profile[3].title}</p>
-                <button className="btn bg-white border rounded-4">
-                  <PersonPlusFill className="mx-2" />
+                <button className="btn bg-white border rounded-4 d-flex align-items-center justify-content-center">
+                  <PersonPlusFill className="me-2" />
                   Collegati
                 </button>
               </div>
