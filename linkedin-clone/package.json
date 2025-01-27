@@ -12,8 +12,12 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "linkedin-clone": "file:",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.8",
+
+    "react-bootstrap-icons": "^1.11.5",
+
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
