@@ -64,7 +64,7 @@ const AdminArea = () =>{
         <Row>
           <Col lg={8}>
           <Profile myProfile={myProfile}/>
-          <Info/>
+          <Info myProfile={myProfile}/>
           <WorkExperience/>
           </Col>
           <Col lg={4}>
