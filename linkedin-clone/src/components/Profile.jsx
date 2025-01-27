@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Container,
   Row,
@@ -9,9 +8,9 @@ import {
   Badge,
 } from "react-bootstrap";
 
-function Profile() {
+function Profile({myProfile}) {
   return (
-    <Container
+    <Container fluid
       className="mt-5"
       style={{
         maxWidth: "800px",
@@ -79,7 +78,7 @@ function Profile() {
       </Row>
       <Row className="justify-content-start text-start ps-3 position-relative">
         <Col xs="auto">
-          <h5 className="d-inline me-2">Nome Utente</h5>
+          <h5 className="d-inline me-2">{myProfile.name} {myProfile.surname}</h5>
           <Badge
             bg="light"
             text="primary"
@@ -92,7 +91,7 @@ function Profile() {
             <i className="bi bi-shield-check"></i> Aggiungi badge di verifica
           </Badge>
           <p className="text-muted mt-2 d-i">
-            <small className="me-2">Città, Regione, Stato</small>
+            <small className="me-2">{myProfile.area}</small>
             <span>
               <a href="#" className="text-primary" style={{ fontSize: "14px" }}>
                 Informazioni di contatto
