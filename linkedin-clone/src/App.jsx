@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <MyNavbar/>
-      <Container>
+      <Container className="nav-space">
         <AdminArea/>
         <MyFooter />
 

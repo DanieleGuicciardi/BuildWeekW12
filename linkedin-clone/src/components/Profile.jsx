@@ -11,7 +11,7 @@ import {
 function Profile({myProfile}) {
   return (
     <Container fluid
-      className=" nav-space"
+     
       style={{
         maxWidth: "800px",
         backgroundColor: "#f9f9f9",

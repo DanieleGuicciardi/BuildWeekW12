@@ -2,7 +2,7 @@ import { Col, Container, Dropdown, DropdownButton, Row } from "react-bootstrap";
 
 function MyFooter() {
   return (
-    <Container style={{ backgroundColor: "#F4F2EE" }}>
+    <Container className="mt-" style={{ backgroundColor: "#F4F2EE" }}>
       <div className=" d-inline-block w-50" style={{ minHeight: "17em" }}>
         <Col>
           <Row xs={1} md={3}>
@@ -79,41 +79,41 @@ function MyFooter() {
           <Row>
             <Col>
               <ul>
-                <li className=" list-group-item" style={{ fontSize: "23px" }}>
+                <li className=" list-group-item" style={{ fontSize: "16px" }}>
                   <i className="bi bi-question-circle-fill d-inline"></i>
                   <a
                     href="javascript:void(0)"
                     className="page-link d-inline ms-1 d-inline"
                   >
-                    Domande?
+                   <span className="fw-bold">Domande?</span> 
                   </a>
-                  <p style={{ fontSize: "13px" }}>
+                  <p className="ps-3" style={{ fontSize: "13px" }}>
                     visita il nostro centro assistenza
                   </p>
                 </li>
               </ul>
               <ul>
-                <li className=" list-group-item" style={{ fontSize: "23px" }}>
+                <li className=" list-group-item" style={{ fontSize: "16px" }}>
                   <i className="bi bi-gear"></i>
                   <a
                     href="javascript:void(0)"
                     className="page-link ms-1 d-inline"
                   >
-                    Gestisci il tuo account e la tua privacy
+                    <span className="fw-bold" >Gestisci il tuo account e la tua privacy </span>
                   </a>
-                  <p style={{ fontSize: "13px" }}>vai alle impostazioni</p>
+                  <p className="ps-4" style={{ fontSize: "13px" }}>vai alle impostazioni</p>
                 </li>
               </ul>
               <ul>
-                <li className=" list-group-item" style={{ fontSize: "23px" }}>
+                <li className=" list-group-item" style={{ fontSize: "16px" }}>
                   <i className="bi bi-shield-shaded"></i>
                   <a
                     href="javascript:void(0)"
                     className="page-link ms-1 d-inline"
                   >
-                    Trasparenza sui contenuti consigliati
+                    <span className="fw-bold"> Trasparenza sui contenuti consigliati</span>
                   </a>
-                  <p style={{ fontSize: "13px" }}>
+                  <p className="ps-4" style={{ fontSize: "13px" }}>
                     Scopri di più sui contenuti consigliati.
                   </p>
                 </li>
@@ -125,7 +125,7 @@ function MyFooter() {
                 id="dropdown-basic-button"
                 title="Lingue"
                 variant="light"
-                style={{ border: " 1px, solid black", width: "89px" }}
+                style={{ border: " 1px, solid black", width: "125px", backgroundColor:"white"}}
               >
                 <Dropdown.Item href="javascript:void(0)">
                   Afrikaans
