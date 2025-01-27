@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
-}                    /* minimal css reset */
+} /* minimal css reset */
+
+.bi-pencil {
+  cursor: pointer;
+}
+
+button:hover {
+  border: 1px solid #000000 !important;
+  background-color: #c2c2c23e !important;
+}
