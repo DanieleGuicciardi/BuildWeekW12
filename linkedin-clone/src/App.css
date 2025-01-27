@@ -8,7 +8,9 @@ html,
 body {
   height: 100%;
   background-color: #F4F2EE;
-}
+  
+}                    /* minimal css reset */
+
 
 .logo-linkedin {
   width: 50px;
@@ -25,4 +27,5 @@ button:hover {
   border: 1px solid #000000 !important;
   background-color: #c2c2c23e !important;
 }
+
 
