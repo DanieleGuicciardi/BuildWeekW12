@@ -7,3 +7,10 @@
 html, body {
   height: 100%;
 }                    /* minimal css reset */
+
+.logo-linkedin {
+  width: 50px;
+  }
+  .search{ 
+    background-color:#EDF3F7;
+   }
