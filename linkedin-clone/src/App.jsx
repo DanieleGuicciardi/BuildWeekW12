@@ -1,11 +1,18 @@
-import { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+import {Container, Row, Col} from 'react-bootstrap';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
+    
+    <Container>
+    <Row>
+      <Col lg={8}></Col>
+      <Col lg={4}></Col>
+    </Row>
+    </Container>
     </>
   )
 }
