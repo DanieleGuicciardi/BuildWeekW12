@@ -3,6 +3,8 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import './App.css'
 import {Container, Row, Col} from 'react-bootstrap';
 
+import WorkExperience from './components/Esperienze';
+
 function App() {
 
   return (
@@ -10,7 +12,9 @@ function App() {
     
     <Container>
     <Row>
-      <Col lg={8}></Col>
+      <Col lg={8}>
+      <WorkExperience />
+      </Col>
       <Col lg={4}></Col>
     </Row>
     </Container>
