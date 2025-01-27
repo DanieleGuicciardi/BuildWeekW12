@@ -3,27 +3,19 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
 import { Container } from "react-bootstrap";
 
-import Sidebar from "./components/Sidebar";
-
-import Profile from "./components/Profile";
+//import Sidebar from "./components/Sidebar";
+//import Profile from './components/Profile';
 import MyNavbar from "./components/MyNavbar";
-import WorkExperience from "./components/Esperienze";
 import MyFooter from "./components/MyFooter";
+import AdminArea from "./components/AdminArea";
 
 function App() {
   return (
     <>
       <MyNavbar />
-      <Container className="mainContainer">
-        <Row>
-          <Col lg={8}>
-            <Profile />
-            <WorkExperience />
-          </Col>
-          <Col lg={4}>
-            <Sidebar />
-          </Col>
-        </Row>
+      <Container>
+        <AdminArea />
+
         <MyFooter />
       </Container>
     </>
