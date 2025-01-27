@@ -7,8 +7,9 @@ import Sidebar from "./components/Sidebar";
 
 import Profile from './components/Profile';
 import MyNavbar from './components/MyNavbar';
-import WorkExperience from './components/Esperienze';
+import WorkExperience from './components/WorkingExperiences';
 import MyFooter from "./components/MyFooter";
+import Info from "./components/Info";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
 
           <Profile/>
           <WorkExperience/>
+          <Info/>
 
           </Col>
           <Col lg={4}>
