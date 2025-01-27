@@ -10,13 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "linkedin-clone": "file:",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.8",
     "react-bootstrap-icons": "^1.11.5",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-redux": "^9.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
