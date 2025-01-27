@@ -3,7 +3,7 @@ import logo from "../assets/LI-In-Bug.png";
 const MyNavbar = function () {
   return (
     <>
-      <Navbar expand="lg" className="bg-white fixed-top">
+      <Navbar expand="lg" className="bg-white fixed-top mb-5">
         <Container>
           <img src={logo} alt="" className=" logo-linkedin me-3" />
           {/* search */}
@@ -72,13 +72,11 @@ const MyNavbar = function () {
                 </Nav.Link>
               </div>
               {/* dropdown */}
-              <div>
+              <div className="text-lg-center me-2 mt-2">
                 <div className="d-inline">
                   <i className="bi bi-person-circle fs-5"></i>
                 </div>
-                <NavDropdown
-                  title="Tu"
-                >
+                <NavDropdown title="Tu " >
                   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action4">
                     Another action
@@ -90,24 +88,21 @@ const MyNavbar = function () {
                 </NavDropdown>
               </div>
 
-              <NavDropdown
-                id="navbarScrollingDropdown"
-                title={
-                  <div className="d-flex flex-column align-items-center text-center">
-                    <i className="bi bi-border-all fs-5"></i>
-                    <span>Per le aziende </span>
-                  </div>
-                }
-              >
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item>
-              </NavDropdown>
+              <div  className="text-lg-center mt-2">
+                <div className="d-inline  " >
+                  <i className="bi bi-border-all fs-5"></i>
+                </div >
+                <NavDropdown title="Tu">
+                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action4">
+                    Another action
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action5">
+                    Something else here
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </div>
             </Nav>
           </Navbar.Collapse>
         </Container>
