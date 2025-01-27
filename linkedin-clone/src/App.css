@@ -7,8 +7,10 @@
 html,
 body {
   height: 100%;
+
   background-color: #f4f2ee;
 }
+
 
 .logo-linkedin {
   width: 50px;
@@ -26,6 +28,8 @@ body {
   background-color: #c2c2c23e !important;
 }
 
+
 .mainContainer {
   margin-top: 100px !important;
 }
+
