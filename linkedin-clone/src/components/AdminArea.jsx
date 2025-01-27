@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Profile from "./Profile"
 import Sidebar from "./Sidebar"
-import WorkExperience from './Esperienze';
+import WorkExperience from './WorkingExperiences';
 import { Row, Col } from "react-bootstrap";
+import Info from './Info'
 
 const AdminArea = () =>{
     const [profiles, setProfile] = useState("");
@@ -63,6 +64,7 @@ const AdminArea = () =>{
         <Row>
           <Col lg={8}>
           <Profile myProfile={myProfile}/>
+          <Info/>
           <WorkExperience/>
           </Col>
           <Col lg={4}>

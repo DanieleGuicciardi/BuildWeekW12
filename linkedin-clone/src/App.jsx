@@ -9,8 +9,6 @@ import { Container } from "react-bootstrap";
 import MyNavbar from './components/MyNavbar';
 import MyFooter from "./components/MyFooter";
 import AdminArea from "./components/AdminArea";
-import Info from "./components/Info";
-import WorkExperience from './components/WorkingExperiences';
 
 
 function App() {
@@ -20,9 +18,7 @@ function App() {
       <MyNavbar/>
       <Container>
         <AdminArea/>
-
-        <Info/>
-        <WorkExperience/>
+        
         <MyFooter />
       </Container>
     </>
