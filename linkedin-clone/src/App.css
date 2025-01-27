@@ -21,7 +21,7 @@ body {
   cursor: pointer;
 }
 
-button:hover {
+.sidebarButton:hover {
   border: 1px solid #000000 !important;
   background-color: #c2c2c23e !important;
 }

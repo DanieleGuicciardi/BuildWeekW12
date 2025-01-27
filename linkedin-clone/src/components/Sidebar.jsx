@@ -99,7 +99,7 @@ const Sidebar = () => {
               <div className="d-flex flex-column align-items-baseline ms-3">
                 <h5>{profile[0].name}</h5>
                 <p>{profile[0].title}</p>
-                <button className="btn bg-white border rounded-4 d-flex align-items-center">
+                <button className="btn bg-white border rounded-4 d-flex align-items-center sidebarButton">
                   <PersonPlusFill className="me-2" />
                   Collegati
                 </button>
@@ -116,7 +116,7 @@ const Sidebar = () => {
               <div className="d-flex flex-column align-items-baseline ms-3">
                 <h5>{profile[10].name}</h5>
                 <p>{profile[10].title}</p>
-                <button className="btn bg-white border rounded-4 d-flex align-items-center">
+                <button className="btn bg-white border rounded-4 d-flex align-items-center sidebarButton">
                   <PersonPlusFill className="me-2" />
                   Collegati
                 </button>
@@ -133,7 +133,7 @@ const Sidebar = () => {
               <div className="d-flex flex-column align-items-baseline ms-3">
                 <h5>{profile[2].name}</h5>
                 <p>{profile[2].title}</p>
-                <button className="btn bg-white border rounded-4 d-flex align-items-center">
+                <button className="btn bg-white border rounded-4 d-flex align-items-center sidebarButton">
                   <PersonPlusFill className="me-2" />
                   Collegati
                 </button>
@@ -150,7 +150,7 @@ const Sidebar = () => {
               <div className="d-flex flex-column align-items-baseline ms-3">
                 <h5>{profile[3].name}</h5>
                 <p>{profile[3].title}</p>
-                <button className="btn bg-white border rounded-4 d-flex align-items-center justify-content-center">
+                <button className="btn bg-white border rounded-4 d-flex align-items-center justify-content-center sidebarButton">
                   <PersonPlusFill className="me-2" />
                   Collegati
                 </button>
