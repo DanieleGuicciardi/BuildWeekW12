@@ -4,6 +4,32 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
-}                    /* minimal css reset */
+
+  background-color: #f4f2ee;
+}
+
+
+.logo-linkedin {
+  width: 50px;
+}
+.search {
+  background-color: #edf3f7;
+}
+
+.bi-pencil {
+  cursor: pointer;
+}
+
+.sidebarButton:hover {
+  border: 1px solid #000000 !important;
+  background-color: #c2c2c23e !important;
+}
+
+
+.mainContainer {
+  margin-top: 100px !important;
+}
+
