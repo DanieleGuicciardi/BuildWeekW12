@@ -60,7 +60,7 @@ const Sidebar = ({myProfile , profiles}) => {
   return (
     <>
       {myProfile && (
-        <div className="border border-1 border-secondary-subtle rounded-2 p-2">
+        <div className="border border-1 border-secondary-subtle rounded-2 p-2 bg-white mt-5">
           <Container>
             <div className="d-flex justify-content-between">
               <div>
@@ -83,7 +83,6 @@ const Sidebar = ({myProfile , profiles}) => {
           </Container>
         </div>
       )}
-
       {profiles && (
         <div className="border border-1 border-secondary-subtle rounded-2 p-2 mt-3">
           <Container>
@@ -97,6 +96,7 @@ const Sidebar = ({myProfile , profiles}) => {
                 className="rounded-5"
               />
               <div className="d-flex flex-column align-items-baseline ms-3">
+
                 <h5>{profiles[0].name}</h5>
                 <p>{profiles[0].title}</p>
                 <button className="btn bg-white border rounded-4">
