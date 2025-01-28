@@ -13,7 +13,6 @@ function Profile({myProfile}) {
     <Container fluid
       className=" nav-space"
       style={{
-        maxWidth: "800px",
         backgroundColor: "#f9f9f9",
         borderRadius: "10px",
       }}

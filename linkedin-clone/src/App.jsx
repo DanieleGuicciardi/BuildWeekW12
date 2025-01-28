@@ -12,8 +12,8 @@ function App() {
   return (
     <>
 
-      <MyNavbar/>
       <Container>
+        <MyNavbar/>
         <AdminArea/>
         <MyFooter />
       </Container>
