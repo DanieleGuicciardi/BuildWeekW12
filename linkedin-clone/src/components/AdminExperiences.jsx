@@ -116,8 +116,7 @@ const AdminExperiences = () => {
     <Container className="mt-4 ">
       <div className="max-w-md mx-auto  bg-white rounded-2xl shadow-lg rounded-3 p-3">
         <div className=" d-flex justify-content-between ">
-          {" "}
-          <h1 className="text-2xl font-semibold mb-6">Esperienze Lavorative</h1>
+          <h2 className="text-2xl font-semibold mb-6">Esperienze Lavorative</h2>
           <Button
             variant="link"
             className="text-dark p-0  fs-2 "
@@ -209,75 +208,15 @@ const AdminExperiences = () => {
           </Modal.Body>
         </Modal>
 
-        <div className="mt-5 ">
-          {experiences.map((experience) => (
-            <WorkExperience key={experience._id} experiences={experience} />
-          ))}
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Start Date</label>
-          <input
-            type="date"
-            name="startDate"
-            value={formData.startDate}
-            onChange={handleChange}
-            className="w-full border rounded-lg px-3 py-2"
-            required
+        {experiences.map((experiences) => (
+          <WorkExperience
+            key={experiences._id}
+            experiences={experiences}
+            deleteExperience={deleteExperience}
           />
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">End Date</label>
-          <input
-            type="date"
-            name="endDate"
-            value={formData.endDate}
-            onChange={handleChange}
-            className="w-full border rounded-lg px-3 py-2"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Description</label>
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            className="w-full border rounded-lg px-3 py-2"
-            rows="3"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Area</label>
-          <input
-            type="text"
-            name="area"
-            value={formData.area}
-            onChange={handleChange}
-            className="w-full border rounded-lg px-3 py-2"
-            required
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600"
-        >
-          Submit
-        </button>
-      </form>
-
-      <h2 className="text-xl font-semibold mt-10">Esperienze Lavorative</h2>
-      {experiences.map((experiences) => (
-        <WorkExperience
-          key={experiences._id}
-          experiences={experiences}
-          deleteExperience={deleteExperience}
-        />
-      ))}
-    </div>
+        ))}
+      </div>
+    </Container>
   );
 };
 
