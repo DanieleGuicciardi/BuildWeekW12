@@ -39,3 +39,18 @@ body {
 .nav-space {
   margin-top: 100px;
 }
+
+
+.profileSidebar {
+  margin-top: 6em;
+  background-color: white;           /* spazio superiore per la sidebar */
+}
+
+.navbarSearchbar {
+  margin-right: 10em;                       
+}
+
+.profileDropdown {
+  border-right: solid 1px #d3d3d3;
+}
+
