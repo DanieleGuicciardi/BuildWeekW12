@@ -2,8 +2,8 @@ import { Col, Container, Dropdown, DropdownButton, Row } from "react-bootstrap";
 
 function MyFooter() {
   return (
-    <Container className="mt-" style={{ backgroundColor: "#F4F2EE" }}>
-      <div className=" d-inline-block w-50" style={{ minHeight: "17em" }}>
+    <Container style={{ backgroundColor: "#F4F2EE" }}>
+      <div className=" d-inline-block w-50" style={{ minHeight: "17em", marginTop: "4em" }}>
         <Col>
           <Row xs={1} md={3}>
             <Col className=" mt-3 ">
