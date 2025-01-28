@@ -10,6 +10,7 @@ import ProfileImg from "./ProfileImg";
 
 function Profile({ myProfile }) {
   return (
+    <Container
       className="nav-space"
       style={{
         backgroundColor: "#f9f9f9",
@@ -42,14 +43,12 @@ function Profile({ myProfile }) {
         </Col>
       </Row>
 
-      {/* Sezione immagine profilo */}
       <Row className="justify-content-start ps-3">
         <Col
           xs="auto"
           className="text-start"
           style={{ marginTop: "-85px", position: "relative" }}
         >
-          {/* Passa myProfile a ProfileImg */}
           <ProfileImg myProfile={myProfile} />
           <Button
             variant="light"
@@ -69,7 +68,6 @@ function Profile({ myProfile }) {
         </Col>
       </Row>
 
-      {/* Sezione informazioni utente */}
       <Row className="justify-content-start text-start ps-3 position-relative">
         <Col xs="auto">
           <h5 className="d-inline me-2">
@@ -112,7 +110,6 @@ function Profile({ myProfile }) {
         </Col>
       </Row>
 
-      {/* Sezione pulsanti */}
       <Row className="justify-content-start text-start ps-3 mt-1">
         <Col xs="auto">
           <p className="mb-2">
@@ -151,7 +148,6 @@ function Profile({ myProfile }) {
         </Col>
       </Row>
 
-      {/* Sezione informazioni aggiuntive */}
       <Row className="mt-3 pb-3">
         <Col md={6} className="text-start ps-3">
           <Card className="p-2 shadow-sm position-relative">

@@ -1,6 +1,7 @@
 import { NavDropdown, Navbar, Container, Nav, Form } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import logo from "../assets/LI-In-Bug.png";
+import { Link } from "react-router-dom";
 
 const MyNavbar = function () {
   const [profileImage, setProfileImage] = useState("");
@@ -64,6 +65,8 @@ const MyNavbar = function () {
               {/* Link con icone */}
               <div className="d-flex align-items-center text-center">
                 <Nav.Link
+                  as={Link}
+                  to={"/"}
                   href="#action1"
                   className="d-flex flex-column align-items-center me-3"
                 >
@@ -118,7 +121,9 @@ const MyNavbar = function () {
                   <i className="bi bi-person-circle fs-5"></i>
                 )}
                 <NavDropdown title="Tu">
-                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={"/profile"}>
+                    Profilo
+                  </NavDropdown.Item>
                   <NavDropdown.Item href="#action4">
                     Another action
                   </NavDropdown.Item>
