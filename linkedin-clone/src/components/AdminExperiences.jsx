@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import WorkExperience from "./WorkingExperiences";
 import { useEffect, useState } from "react";
 import { Button, Container, Form, Modal } from "react-bootstrap";
