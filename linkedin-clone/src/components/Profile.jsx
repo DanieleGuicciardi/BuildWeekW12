@@ -2,16 +2,17 @@ import {
   Container,
   Row,
   Col,
-  Image,
   Button,
-  Card,
   Badge,
+  Card,
 } from "react-bootstrap";
+import ProfileImg from "./ProfileImg";
 
-function Profile({myProfile}) {
+function Profile({ myProfile }) {
   return (
-    <Container fluid
-      className=" nav-space"
+    <Container
+      fluid
+      className="nav-space"
       style={{
         backgroundColor: "#f9f9f9",
         borderRadius: "10px",
@@ -42,22 +43,16 @@ function Profile({myProfile}) {
           </Button>
         </Col>
       </Row>
+
+      {/* Sezione immagine profilo */}
       <Row className="justify-content-start ps-3">
         <Col
           xs="auto"
           className="text-start"
           style={{ marginTop: "-85px", position: "relative" }}
         >
-          <Image
-            src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"
-            roundedCircle
-            style={{
-              border: "4px solid white",
-              width: "120px",
-              height: "120px",
-              objectFit: "cover",
-            }}
-          />
+          {/* Passa myProfile a ProfileImg */}
+          <ProfileImg myProfile={myProfile} />
           <Button
             variant="light"
             className="p-0"
@@ -75,9 +70,13 @@ function Profile({myProfile}) {
           </Button>
         </Col>
       </Row>
+
+      {/* Sezione informazioni utente */}
       <Row className="justify-content-start text-start ps-3 position-relative">
         <Col xs="auto">
-          <h5 className="d-inline me-2">{myProfile.name} {myProfile.surname}</h5>
+          <h5 className="d-inline me-2">
+            {myProfile.name} {myProfile.surname}
+          </h5>
           <Badge
             bg="light"
             text="primary"
@@ -115,6 +114,7 @@ function Profile({myProfile}) {
         </Col>
       </Row>
 
+      {/* Sezione pulsanti */}
       <Row className="justify-content-start text-start ps-3 mt-1">
         <Col xs="auto">
           <p className="mb-2">
@@ -152,6 +152,8 @@ function Profile({myProfile}) {
           </Button>
         </Col>
       </Row>
+
+      {/* Sezione informazioni aggiuntive */}
       <Row className="mt-3 pb-3">
         <Col md={6} className="text-start ps-3">
           <Card className="p-2 shadow-sm position-relative">
@@ -166,7 +168,7 @@ function Profile({myProfile}) {
               Mostra ai recruiter che sei disponibile a lavorare:
             </h6>
             <p className="text-muted" style={{ fontSize: "14px" }}>
-              sei tu che decidi chi può vedere questa informazione.
+              Sei tu che decidi chi può vedere questa informazione.
             </p>
             <Button
               variant="link"
@@ -190,7 +192,7 @@ function Profile({myProfile}) {
               Fai sapere che stai facendo selezione
             </h6>
             <p className="text-muted" style={{ fontSize: "14px" }}>
-              e attrai candidati qualificati
+              E attrai candidati qualificati
             </p>
             <Button
               variant="link"
@@ -207,3 +209,4 @@ function Profile({myProfile}) {
 }
 
 export default Profile;
+
