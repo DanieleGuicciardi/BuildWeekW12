@@ -85,7 +85,7 @@ function MyFooter() {
                     href="javascript:void(0)"
                     className="page-link d-inline ms-1 d-inline"
                   >
-                   <span className="fw-bold">Domande?</span> 
+                    <span className="fw-bold">Domande?</span>
                   </a>
                   <p className="ps-3" style={{ fontSize: "13px" }}>
                     visita il nostro centro assistenza
@@ -99,9 +99,13 @@ function MyFooter() {
                     href="javascript:void(0)"
                     className="page-link ms-1 d-inline"
                   >
-                    <span className="fw-bold" >Gestisci il tuo account e la tua privacy </span>
+                    <span className="fw-bold">
+                      Gestisci il tuo account e la tua privacy{" "}
+                    </span>
                   </a>
-                  <p className="ps-4" style={{ fontSize: "13px" }}>vai alle impostazioni</p>
+                  <p className="ps-4" style={{ fontSize: "13px" }}>
+                    vai alle impostazioni
+                  </p>
                 </li>
               </ul>
               <ul>
@@ -111,7 +115,10 @@ function MyFooter() {
                     href="javascript:void(0)"
                     className="page-link ms-1 d-inline"
                   >
-                    <span className="fw-bold"> Trasparenza sui contenuti consigliati</span>
+                    <span className="fw-bold">
+                      {" "}
+                      Trasparenza sui contenuti consigliati
+                    </span>
                   </a>
                   <p className="ps-4" style={{ fontSize: "13px" }}>
                     Scopri di più sui contenuti consigliati.
@@ -125,7 +132,11 @@ function MyFooter() {
                 id="dropdown-basic-button"
                 title="Lingue"
                 variant="light"
-                style={{ border: " 1px, solid black", width: "125px", backgroundColor:"white"}}
+                style={{
+                  border: " 1px, solid black",
+                  width: "125px",
+                  backgroundColor: "white",
+                }}
               >
                 <Dropdown.Item href="javascript:void(0)">
                   Afrikaans
