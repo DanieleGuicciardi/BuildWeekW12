@@ -1,7 +1,37 @@
 import { NavDropdown, Navbar, Container, Nav, Form } from "react-bootstrap";
+import { useEffect, useState } from "react";
 import logo from "../assets/LI-In-Bug.png";
 
 const MyNavbar = function () {
+  const [profileImage, setProfileImage] = useState("");
+
+  // Funzione per ottenere i dati del profilo
+  const fetchProfileImage = async () => {
+    try {
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/me",
+        {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
+          },
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        setProfileImage(data.image); // Salva l'immagine nel state
+      } else {
+        console.error("Errore nel recupero dell'immagine del profilo.");
+      }
+    } catch (error) {
+      console.error("Errore:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProfileImage();
+  }, []);
+
   return (
     <>
       <Navbar expand="lg" className="bg-white fixed-top">
@@ -72,9 +102,21 @@ const MyNavbar = function () {
 
               {/* Dropdown - Profilo */}
               <div className="d-flex align-items-center text-center me-3 profileDropdown">
-                <div className="d-inline">
+                {profileImage ? (
+                  <img
+                    src={profileImage}
+                    alt="Profile"
+                    className="rounded-circle"
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      objectFit: "cover",
+                      marginRight: "8px",
+                    }}
+                  />
+                ) : (
                   <i className="bi bi-person-circle fs-5"></i>
-                </div>
+                )}
                 <NavDropdown title="Tu">
                   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action4">
@@ -112,4 +154,3 @@ const MyNavbar = function () {
 };
 
 export default MyNavbar;
-
