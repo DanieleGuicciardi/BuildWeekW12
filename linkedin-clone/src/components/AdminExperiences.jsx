@@ -63,6 +63,29 @@ const AdminExperiences = () => {
     }
   };
 
+  const deleteExperience = async (id) => {
+    try {
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/679743ee16f6350015fecb7b/experiences/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
+      if (response.ok) {
+        await getExperiences();
+      } else {
+        throw new Error("Errore durante l'eliminazione dell'esperienza.");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     await postExperiences();
@@ -191,8 +214,70 @@ const AdminExperiences = () => {
             <WorkExperience key={experience._id} experiences={experience} />
           ))}
         </div>
-      </div>{" "}
-    </Container>
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-1">Start Date</label>
+          <input
+            type="date"
+            name="startDate"
+            value={formData.startDate}
+            onChange={handleChange}
+            className="w-full border rounded-lg px-3 py-2"
+            required
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-1">End Date</label>
+          <input
+            type="date"
+            name="endDate"
+            value={formData.endDate}
+            onChange={handleChange}
+            className="w-full border rounded-lg px-3 py-2"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-1">Description</label>
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            className="w-full border rounded-lg px-3 py-2"
+            rows="3"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-1">Area</label>
+          <input
+            type="text"
+            name="area"
+            value={formData.area}
+            onChange={handleChange}
+            className="w-full border rounded-lg px-3 py-2"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600"
+        >
+          Submit
+        </button>
+      </form>
+
+      <h2 className="text-xl font-semibold mt-10">Esperienze Lavorative</h2>
+      {experiences.map((experiences) => (
+        <WorkExperience
+          key={experiences._id}
+          experiences={experiences}
+          deleteExperience={deleteExperience}
+        />
+      ))}
+    </div>
   );
 };
 
