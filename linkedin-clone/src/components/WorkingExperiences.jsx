@@ -1,4 +1,9 @@
-const WorkExperience = ({ experiences }) => {
+import { Trash } from "react-bootstrap-icons";
+
+const WorkExperience = ({ experiences, deleteExperience }) => {
+  const date1 = new Date(experiences.startDate);
+  const date2 = new Date(experiences.endDate);
+
   return (
     <div className="container mt-4" key={experiences.id}>
       <div className="list-group">
@@ -6,12 +11,17 @@ const WorkExperience = ({ experiences }) => {
           <div className="d-flex w-100 justify-content-between">
             <h5 className="mb-1">{experiences.role}</h5>
             <small className="text-muted">
-              {experiences.startDate} - {experiences.endDate}
+              {date1.toDateString()} - {date2.toDateString()}
             </small>
           </div>
+
           <p className="mb-1 text-muted">{experiences.company}</p>
           <p className="mb-1">{experiences.description}</p>
           <p className="mb-1">{experiences.area}</p>
+          <Trash
+            onClick={() => deleteExperience(experiences._id)}
+            style={{ cursor: "pointer", color: "red" }}
+          />
         </div>
       </div>
     </div>

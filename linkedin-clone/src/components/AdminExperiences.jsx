@@ -61,6 +61,29 @@ const AdminExperiences = () => {
     }
   };
 
+  const deleteExperience = async (id) => {
+    try {
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/679743ee16f6350015fecb7b/experiences/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
+      if (response.ok) {
+        await getExperiences();
+      } else {
+        throw new Error("Errore durante l'eliminazione dell'esperienza.");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     await postExperiences();
@@ -171,7 +194,11 @@ const AdminExperiences = () => {
 
       <h2 className="text-xl font-semibold mt-10">Esperienze Lavorative</h2>
       {experiences.map((experiences) => (
-        <WorkExperience key={experiences._id} experiences={experiences} />
+        <WorkExperience
+          key={experiences._id}
+          experiences={experiences}
+          deleteExperience={deleteExperience}
+        />
       ))}
     </div>
   );
