@@ -8,7 +8,7 @@ const WorkExperience = () => {
       title: "Software Developer",
       company: "Retex",
       description: "Sviluppo",
-      startDate: "Gennaio 2020",
+      startDate: "Gennaio 2020",           /* array di prova statico */
       endDate: "Presente",
     },
   ];
