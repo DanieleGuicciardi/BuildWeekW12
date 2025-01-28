@@ -1,8 +1,10 @@
 import WorkExperience from "./WorkingExperiences";
 import { useEffect, useState } from "react";
+import { Button, Container, Form, Modal } from "react-bootstrap";
 
 const AdminExperiences = () => {
   const [experiences, setExperiences] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     role: "",
     company: "",
@@ -111,31 +113,106 @@ const AdminExperiences = () => {
   }, [formData]);
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg">
-      <h1 className="text-2xl font-semibold mb-6">Add New Experience</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Role</label>
-          <input
-            type="text"
-            name="role"
-            value={formData.role}
-            onChange={handleChange}
-            className="w-full border rounded-lg px-3 py-2"
-            required
-          />
+    <Container className="mt-4 ">
+      <div className="max-w-md mx-auto  bg-white rounded-2xl shadow-lg rounded-3 p-3">
+        <div className=" d-flex justify-content-between ">
+          {" "}
+          <h1 className="text-2xl font-semibold mb-6">Esperienze Lavorative</h1>
+          <Button
+            variant="link"
+            className="text-dark p-0  fs-2 "
+            onClick={() => setShowModal(true)}
+          >
+            <i className="bi bi-plus-lg"></i>
+          </Button>
         </div>
 
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Company</label>
-          <input
-            type="text"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-            className="w-full border rounded-lg px-3 py-2"
-            required
-          />
+        <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+          <Modal.Header closeButton>
+            <Modal.Title>Aggiungi Nuova Esperienza</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3">
+                <Form.Label>Ruolo</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="role"
+                  value={formData.role}
+                  onChange={handleChange}
+                  placeholder="Inserisci il ruolo"
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Azienda</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  placeholder="Inserisci il nome dell'azienda"
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Data di inizio</Form.Label>
+                <Form.Control
+                  type="date"
+                  name="startDate"
+                  value={formData.startDate}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Data di fine</Form.Label>
+                <Form.Control
+                  type="date"
+                  name="endDate"
+                  value={formData.endDate}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Descrizione</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                  rows={3}
+                  placeholder="Descrivi l'esperienza"
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Area</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="area"
+                  value={formData.area}
+                  onChange={handleChange}
+                  placeholder="Inserisci l'area geografica"
+                  required
+                />
+              </Form.Group>
+
+              <Button variant="primary" type="submit" className="w-100">
+                Invia
+              </Button>
+            </Form>
+          </Modal.Body>
+        </Modal>
+
+        <div className="mt-5 ">
+          {experiences.map((experience) => (
+            <WorkExperience key={experience._id} experiences={experience} />
+          ))}
         </div>
 
         <div className="mb-4">
