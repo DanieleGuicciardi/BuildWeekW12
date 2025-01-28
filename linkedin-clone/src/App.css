@@ -14,6 +14,7 @@ body {
 .logo-linkedin {
   width: 50px;
 }
+
 .search {
   background-color: #edf3f7;
 }
@@ -30,6 +31,7 @@ body {
 .mainContainer {
   margin-top: 100px !important;
 }
+
 .dropdown-toggle {
   padding: 0;
 }

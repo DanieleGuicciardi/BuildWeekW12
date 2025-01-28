@@ -2,8 +2,9 @@
 import { Container } from "react-bootstrap";
 import { Pencil, PersonPlusFill } from "react-bootstrap-icons";
 
-const Sidebar = ({myProfile , profiles}) => {
-  {/*const [profile, setProfile] = useState("");
+const Sidebar = ({ myProfile, profiles }) => {
+  {
+    /*const [profile, setProfile] = useState("");
   const [myProfile, setMyProfile] = useState("");
 
   const getProfile = async () => {
@@ -55,12 +56,13 @@ const Sidebar = ({myProfile , profiles}) => {
   useEffect(() => {
     getProfile();
     getMyProfile();
-  }, []);*/}
+  }, []);*/
+  }
 
   return (
     <>
       {myProfile && (
-        <div className="border border-1 border-secondary-subtle rounded-2 p-2 bg-white mt-5">
+        <div className="border border-1 border-secondary-subtle rounded-2 p-2 bg-white nav-space">
           <Container>
             <div className="d-flex justify-content-between">
               <div>
@@ -71,11 +73,10 @@ const Sidebar = ({myProfile , profiles}) => {
             </div>
             <hr className=" mb-4" />
             <div className="d-flex justify-content-between">
-              <div>
+              <div className=" text-break">
                 <h5>Profilo pubblico e URL</h5>
                 <p>
-                  www.linkedin.com/{myProfile.username}/<br />
-                  {myProfile._id}
+                  www.linkedin.com/{myProfile.username}/{myProfile._id}
                 </p>
               </div>
               <Pencil className=" fs-4" />
@@ -84,7 +85,7 @@ const Sidebar = ({myProfile , profiles}) => {
         </div>
       )}
       {profiles && (
-        <div className="border border-1 border-secondary-subtle rounded-2 p-2 mt-3">
+        <div className="border border-1 border-secondary-subtle rounded-2 p-2 mt-3 bg-white">
           <Container>
             <h6>Persone che potresti conoscere</h6>
             <p className="text-secondary">Dal tuo settore</p>
@@ -96,10 +97,9 @@ const Sidebar = ({myProfile , profiles}) => {
                 className="rounded-5"
               />
               <div className="d-flex flex-column align-items-baseline ms-3">
-
                 <h5>{profiles[0].name}</h5>
                 <p>{profiles[0].title}</p>
-                <button className="btn bg-white border rounded-4">
+                <button className="btn bg-white border rounded-4 sidebarButton">
                   <PersonPlusFill className="mx-2" />
                   Collegati
                 </button>
@@ -116,7 +116,7 @@ const Sidebar = ({myProfile , profiles}) => {
               <div className="d-flex flex-column align-items-baseline ms-3">
                 <h5>{profiles[10].name}</h5>
                 <p>{profiles[10].title}</p>
-                <button className="btn bg-white border rounded-4">
+                <button className="btn bg-white border rounded-4 sidebarButton">
                   <PersonPlusFill className="mx-2" />
                   Collegati
                 </button>
@@ -133,7 +133,7 @@ const Sidebar = ({myProfile , profiles}) => {
               <div className="d-flex flex-column align-items-baseline ms-3">
                 <h5>{profiles[2].name}</h5>
                 <p>{profiles[2].title}</p>
-                <button className="btn bg-white border rounded-4">
+                <button className="btn bg-white border rounded-4 sidebarButton">
                   <PersonPlusFill className="mx-2" />
                   Collegati
                 </button>
@@ -150,7 +150,7 @@ const Sidebar = ({myProfile , profiles}) => {
               <div className="d-flex flex-column align-items-baseline ms-3">
                 <h5>{profiles[3].name}</h5>
                 <p>{profiles[3].title}</p>
-                <button className="btn bg-white border rounded-4">
+                <button className="btn bg-white border rounded-4 sidebarButton">
                   <PersonPlusFill className="mx-2" />
                   Collegati
                 </button>
