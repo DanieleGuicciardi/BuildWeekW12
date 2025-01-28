@@ -1,6 +1,6 @@
 import React from "react";
 
-const WorkExperience = () => {
+const WorkExperience = ({ experiences }) => {
   return (
     <div className="container mt-4" key={experiences.id}>
       <div className="list-group">
