@@ -1,5 +1,3 @@
-import React from "react";
-
 const WorkExperience = ({ experiences }) => {
   return (
     <div className="container mt-4" key={experiences.id}>

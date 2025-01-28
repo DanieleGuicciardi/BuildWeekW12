@@ -171,7 +171,7 @@ const AdminExperiences = () => {
 
       <h2 className="text-xl font-semibold mt-10">Esperienze Lavorative</h2>
       {experiences.map((experiences) => (
-        <WorkExperience key={experiences._id} experiences={experiences}/>
+        <WorkExperience key={experiences._id} experiences={experiences} />
       ))}
     </div>
   );
