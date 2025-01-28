@@ -1,35 +1,32 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
-import Sidebar from "./components/Sidebar";
+//import Sidebar from "./components/Sidebar";
+//import Profile from './components/Profile';
+import MyNavbar from "./components/MyNavbar";
 
-import Profile from './components/Profile';
-import MyNavbar from './components/MyNavbar';
-import WorkExperience from './components/Esperienze';
 import MyFooter from "./components/MyFooter";
-
+import AdminArea from "./components/AdminArea";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
 
 function App() {
   return (
     <>
-      <MyNavbar />
-      <Container className="mainContainer">
-        <Row>
-          <Col lg={8}>
+      <BrowserRouter>
+        <Container>
+          <MyNavbar />
 
-          <Profile/>
-          <WorkExperience/>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<AdminArea />} />
+          </Routes>
 
-          </Col>
-          <Col lg={4}>
-            <Sidebar />
-          </Col>
-        </Row>
-        <MyFooter />
-
-      </Container>
+          <MyFooter />
+        </Container>
+      </BrowserRouter>
     </>
   );
 }

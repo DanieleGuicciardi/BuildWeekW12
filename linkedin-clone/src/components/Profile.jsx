@@ -1,20 +1,18 @@
-import React from "react";
 import {
   Container,
   Row,
   Col,
-  Image,
   Button,
-  Card,
   Badge,
+  Card,
 } from "react-bootstrap";
+import ProfileImg from "./ProfileImg";
 
-function Profile() {
+function Profile({ myProfile }) {
   return (
     <Container
-      className="mt-5"
+      className="nav-space"
       style={{
-        maxWidth: "800px",
         backgroundColor: "#f9f9f9",
         borderRadius: "10px",
       }}
@@ -44,22 +42,14 @@ function Profile() {
           </Button>
         </Col>
       </Row>
+
       <Row className="justify-content-start ps-3">
         <Col
           xs="auto"
           className="text-start"
           style={{ marginTop: "-85px", position: "relative" }}
         >
-          <Image
-            src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"
-            roundedCircle
-            style={{
-              border: "4px solid white",
-              width: "120px",
-              height: "120px",
-              objectFit: "cover",
-            }}
-          />
+          <ProfileImg myProfile={myProfile} />
           <Button
             variant="light"
             className="p-0"
@@ -77,9 +67,12 @@ function Profile() {
           </Button>
         </Col>
       </Row>
+
       <Row className="justify-content-start text-start ps-3 position-relative">
         <Col xs="auto">
-          <h5 className="d-inline me-2">Nome Utente</h5>
+          <h5 className="d-inline me-2">
+            {myProfile.name} {myProfile.surname}
+          </h5>
           <Badge
             bg="light"
             text="primary"
@@ -92,7 +85,7 @@ function Profile() {
             <i className="bi bi-shield-check"></i> Aggiungi badge di verifica
           </Badge>
           <p className="text-muted mt-2 d-i">
-            <small className="me-2">Città, Regione, Stato</small>
+            <small className="me-2">{myProfile.area}</small>
             <span>
               <a href="#" className="text-primary" style={{ fontSize: "14px" }}>
                 Informazioni di contatto
@@ -154,6 +147,7 @@ function Profile() {
           </Button>
         </Col>
       </Row>
+
       <Row className="mt-3 pb-3">
         <Col md={6} className="text-start ps-3">
           <Card className="p-2 shadow-sm position-relative">
@@ -168,7 +162,7 @@ function Profile() {
               Mostra ai recruiter che sei disponibile a lavorare:
             </h6>
             <p className="text-muted" style={{ fontSize: "14px" }}>
-              sei tu che decidi chi può vedere questa informazione.
+              Sei tu che decidi chi può vedere questa informazione.
             </p>
             <Button
               variant="link"
@@ -192,7 +186,7 @@ function Profile() {
               Fai sapere che stai facendo selezione
             </h6>
             <p className="text-muted" style={{ fontSize: "14px" }}>
-              e attrai candidati qualificati
+              E attrai candidati qualificati
             </p>
             <Button
               variant="link"

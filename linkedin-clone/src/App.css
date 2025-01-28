@@ -11,10 +11,10 @@ body {
   background-color: #f4f2ee;
 }
 
-
 .logo-linkedin {
   width: 50px;
 }
+
 .search {
   background-color: #edf3f7;
 }
@@ -28,8 +28,29 @@ body {
   background-color: #c2c2c23e !important;
 }
 
-
 .mainContainer {
   margin-top: 100px !important;
+}
+
+.dropdown-toggle {
+  padding: 0;
+}
+
+.nav-space {
+  margin-top: 100px;
+}
+
+
+.profileSidebar {
+  margin-top: 6em;
+  background-color: white;           /* spazio superiore per la sidebar */
+}
+
+.navbarSearchbar {
+  margin-right: 10em;                       
+}
+
+.profileDropdown {
+  border-right: solid 1px #d3d3d3;
 }
 
