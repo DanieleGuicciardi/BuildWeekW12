@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 const store = configureStore({
-    reducer: profileReducer
+    reducer: profileReducer,
   })
 
   export default store 
