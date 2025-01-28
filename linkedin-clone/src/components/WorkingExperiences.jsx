@@ -1,6 +1,12 @@
-import { Trash } from "react-bootstrap-icons";
+import { Pencil, Trash } from "react-bootstrap-icons";
 
-const WorkExperience = ({ experiences, deleteExperience }) => {
+const WorkExperience = ({
+  experiences,
+  deleteExperience,
+  // setShowModal,
+  modifyExperience,
+  // setModify,
+}) => {
   const date1 = new Date(experiences.startDate);
   const date2 = new Date(experiences.endDate);
 
@@ -21,6 +27,11 @@ const WorkExperience = ({ experiences, deleteExperience }) => {
           <Trash
             onClick={() => deleteExperience(experiences._id)}
             style={{ cursor: "pointer", color: "red" }}
+          />
+          <Pencil
+            className="mx-2"
+            onClick={() => modifyExperience(experiences)}
+            style={{ cursor: "pointer" }}
           />
         </div>
       </div>

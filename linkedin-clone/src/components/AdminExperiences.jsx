@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import WorkExperience from "./WorkingExperiences";
 import { useEffect, useState } from "react";
 import { Button, Container, Form, Modal } from "react-bootstrap";
@@ -5,6 +6,8 @@ import { Button, Container, Form, Modal } from "react-bootstrap";
 const AdminExperiences = () => {
   const [experiences, setExperiences] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState({
     role: "",
     company: "",
@@ -55,6 +58,8 @@ const AdminExperiences = () => {
       );
       if (response.ok) {
         console.log("Esperienza aggiunta con successo!");
+        await getExperiences();
+        resetForm();
       } else {
         throw new Error("Errore durante l'invio dell'esperienza.");
       }
@@ -66,7 +71,7 @@ const AdminExperiences = () => {
   const deleteExperience = async (id) => {
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/679743ee16f6350015fecb7b/experiences/${id}`,
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -86,9 +91,59 @@ const AdminExperiences = () => {
     }
   };
 
+  const modifyExperience = async (id) => {
+    setShowModal(true);
+    try {
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
+            "Content-type": "application/json; charset=UTF-8",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      if (response.ok) {
+        await getExperiences();
+        resetForm();
+      } else {
+        throw new Error("Errore durante la modifica dell'esperienza.");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await postExperiences();
+    if (isEditing) {
+      await modifyExperience(editingId);
+    } else {
+      await postExperiences();
+    }
+    setShowModal(false);
+  };
+
+  const handleEdit = (experience) => {
+    setIsEditing(true);
+    setEditingId(experience._id);
+    setFormData({
+      role: experience.role,
+      company: experience.company,
+      startDate: experience.startDate,
+      endDate: experience.endDate,
+      description: experience.description,
+      area: experience.area,
+    });
+    setShowModal(true);
+  };
+
+  const resetForm = () => {
+    setIsEditing(false);
+    setEditingId(null);
     setFormData({
       role: "",
       company: "",
@@ -108,10 +163,6 @@ const AdminExperiences = () => {
     getExperiences();
   }, []);
 
-  useEffect(() => {
-    getExperiences();
-  }, [formData]);
-
   return (
     <Container className="mt-4 ">
       <div className="max-w-md mx-auto  bg-white rounded-2xl shadow-lg rounded-3 p-3">
@@ -128,7 +179,9 @@ const AdminExperiences = () => {
 
         <Modal show={showModal} onHide={() => setShowModal(false)} centered>
           <Modal.Header closeButton>
-            <Modal.Title>Aggiungi Nuova Esperienza</Modal.Title>
+            <Modal.Title>
+              {isEditing ? "Modifica Esperienza" : "Aggiungi Nuova Esperienza"}
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit={handleSubmit}>
@@ -201,8 +254,8 @@ const AdminExperiences = () => {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit" className="w-100">
-                Invia
+              <Button variant="primary" type="submit" className="w-50">
+                {isEditing ? "Aggiorna" : "Invia"}
               </Button>
             </Form>
           </Modal.Body>
@@ -213,6 +266,7 @@ const AdminExperiences = () => {
             key={experiences._id}
             experiences={experiences}
             deleteExperience={deleteExperience}
+            modifyExperience={handleEdit}
           />
         ))}
       </div>
