@@ -10,8 +10,6 @@ import ProfileImg from "./ProfileImg";
 
 function Profile({ myProfile }) {
   return (
-    <Container
-      fluid
       className="nav-space"
       style={{
         backgroundColor: "#f9f9f9",
