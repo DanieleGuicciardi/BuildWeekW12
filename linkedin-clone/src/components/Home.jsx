@@ -136,15 +136,14 @@ function Home() {
   }, []);
 
   return (
-    <div className="mt-5">
+    <div className="">
       <Container>
         <Row>
            <Col lg={3}>  <SidebarHleft/> </Col> 
            <Col lg={7}> 
             {console.log(posts)}
-            <br />
-            <br />
-            <br />
+           
+           
             <form onSubmit={handleSubmit} className="my-4">
               <div className="bg-white rounded-2 p-2">
                 <h3>Crea un post</h3>

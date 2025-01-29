@@ -60,22 +60,28 @@ body {
 
 .home-plus {
   position: absolute;
-  top: 24%;
-  left: 33%;
+  top: 25%;
+  left: 31%;
   font-size: 25px;
   color: #0B66C2;
   background-color: white;
-  width: 30px;  /* Imposta la larghezza */
-  height: 30px; /* Imposta l'altezza */
-  display: flex; /* Usa flexbox per centrare il contenuto */
+  width: 25px;  
+  height: 25px; 
+  display: flex; 
   justify-content: center;
   align-items: center;
-  border-radius: 50%; /* Rende il tasto rotondo */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Aggiungi un'ombra per migliorare la visibilità */
-  cursor: pointer; /* Cambia il cursore per indicare che è cliccabile */
-  padding: 0; /* Rimuove eventuali padding indesiderati */
+  border-radius: 50%; 
+ 
+  cursor: pointer; 
+  padding: 0; 
 }
 
 .btn-home{  
   background-color: #DFDEDA;
+}
+
+.sidebar-top {
+  background-color: black;
+  height: 70px;
+  
 }
