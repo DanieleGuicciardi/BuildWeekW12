@@ -5,16 +5,17 @@ import {
   ChatDots,
   Share,
 } from "react-bootstrap-icons";
+import Card from 'react-bootstrap/Card';
 
 const HomePosts = ({ posts, deletePost, modifyPost }) => {
   const postDate = new Date(posts.createdAt);
   const myId = "679743ee16f6350015fecb7b";
 
   return (
-    <div className="card mb-4 shadow-sm">
-      <div className="card-body">
-        {/* Header del post */}
-        <div className="d-flex align-items-center mb-3">
+    <Card className="mb-3">
+        <Card.Body>
+          <Card.Text>
+          <div className="d-flex align-items-center">
           <img
             src={posts.user.image || "https://via.placeholder.com/50"}
             alt={posts.user.username}
@@ -43,12 +44,14 @@ const HomePosts = ({ posts, deletePost, modifyPost }) => {
             </div>
           )}
         </div>
-
-        {/* Contenuto del post */}
-        <p className="card-text">{posts.text}</p>
-
-        {/* Footer del post */}
-        <hr />
+          </Card.Text>
+          <Card.Text>
+          {posts.text}
+          </Card.Text>
+        </Card.Body>
+        <Card.Img variant="bottom" src={posts.image} style={{maxHeight:"400px"}}
+        />
+        <Card.Footer>
         <div className="d-flex justify-content-around text-muted">
           <div className="d-flex align-items-center">
             <HandThumbsUp className="me-2" />
@@ -63,8 +66,8 @@ const HomePosts = ({ posts, deletePost, modifyPost }) => {
             <span>Condividi</span>
           </div>
         </div>
-      </div>
-    </div>
+        </Card.Footer>
+      </Card>
   );
 };
 export default HomePosts;
