@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { Alert, Col, Container, Row, Spinner } from "react-bootstrap";
 import HomePosts from "./HomePosts";
@@ -72,7 +73,7 @@ function Home() {
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
             "Content-type": "application/json; charset=UTF-8",
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify({ text: input }),
         }
       );
       if (response.ok) {
@@ -91,6 +92,7 @@ function Home() {
     e.preventDefault();
     if (editId) {
       await modifyPost(editId);
+      console.log(editId);
       setEditId(null);
       await getPost();
     } else {
