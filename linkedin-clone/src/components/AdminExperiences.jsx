@@ -14,7 +14,7 @@ const AdminExperiences = () => {
     endDate: "",
     description: "",
     area: "",
-    image: "",
+    image: null,
   });
   const [img, setImg] = useState(null);
 
@@ -138,9 +138,11 @@ const AdminExperiences = () => {
         }
       );
       if (response.ok) {
+        const newExperienceImg = await response.json();
+        console.log("Esperienza aggiunta con successo:", newExperienceImg);
         if (img) {
-          console.log("Caricamento immagine per esperienza ID:", id);
-          await postImgExperiences(id);
+          console.log("Caricamento immagine per esperienza ID:", newExperienceImg._id);
+          await postImgExperiences(newExperienceImg._id);
         }
         await getExperiences();
         resetForm();
@@ -186,6 +188,7 @@ const AdminExperiences = () => {
       endDate: "",
       description: "",
       area: "",
+      image: null,
     });
   };
 
@@ -305,6 +308,7 @@ const AdminExperiences = () => {
                   onChange={handleImageChange}
                   accept="image/"
                   placeholder="Inserisci un'immagine"
+                  required
                 />
               </Form.Group>
 
