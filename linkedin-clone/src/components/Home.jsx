@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Alert, Col, Container, Row, Spinner } from "react-bootstrap";
+import { Alert,  Container, Row, Spinner, Col } from "react-bootstrap";
 import HomePosts from "./HomePosts";
-
+import SidebarHleft from "./SidebarHleft"
+import SidebarHright from "./SidebarHright"
 function Home() {
   const [data, setData] = useState([]);
   const [input, setInput] = useState("");
@@ -138,8 +139,8 @@ function Home() {
     <div className="mt-5">
       <Container>
         <Row>
-          <Col lg={2}></Col>
-          <Col lg={7}>
+           <Col lg={3}>  <SidebarHleft/> </Col> 
+           <Col lg={7}> 
             {console.log(posts)}
             <br />
             <br />
@@ -191,7 +192,7 @@ function Home() {
               </div>
             )}
           </Col>
-          <Col lg={3}></Col>
+          <Col lg={2}> <SidebarHright/> </Col>
         </Row>
       </Container>
     </div>

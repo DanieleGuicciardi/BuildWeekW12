@@ -10,15 +10,16 @@ import MyNavbar from "./components/MyNavbar";
 import MyFooter from "./components/MyFooter";
 import AdminArea from "./components/AdminArea";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
+// import Home from "./components/Home";
 import WorkingDetails from "./components/WorkingDetails";
 import PagError from "./components/PagError";
+import Home from "./components/Home";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-      <MyNavbar />
+        <MyNavbar />
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
