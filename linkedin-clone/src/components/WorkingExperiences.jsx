@@ -17,13 +17,13 @@ const WorkExperience = ({
       className="container mt-4"
       key={experiences._id}
       style={{
-        backgroundImage: `url(${experiences.image})`, // Imposta il background
-        backgroundSize: "cover", // Assicura che l'immagine copra il div
-        backgroundPosition: "center", // Centra l'immagine
-        borderRadius: "10px", // Opzionale: bordi arrotondati
-        padding: "20px", // Padding per evitare che il testo sia troppo attaccato ai bordi
-        color: "white", // Colore del testo per maggiore leggibilità
-        textShadow: "2px 2px 4px rgba(0,0,0,0.5)", // Aggiunge un'ombra per migliorare il contrasto
+        backgroundImage: `url(${experiences.image})`,
+        backgroundSize: "cover", 
+        backgroundPosition: "center", 
+        borderRadius: "10px", 
+        padding: "20px", 
+        color: "white",
+        textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
       }}
     >
       <div className="list-group">
