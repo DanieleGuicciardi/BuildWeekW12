@@ -37,12 +37,12 @@ body {
 }
 
 .nav-space {
-  margin-top: 100px;
+  margin-top: 10px;
 }
 
 .profileSidebar {
-  margin-top: 6em;
-  background-color: white; /* spazio superiore per la sidebar */
+  margin-top: 10px;
+  background-color: white;
 }
 
 .navbarSearchbar {
