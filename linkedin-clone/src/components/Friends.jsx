@@ -66,7 +66,7 @@ const Friends = () => {
                   </button>
                 </div>
               </div>
-              {index < profiles.length - 1 && <hr />} {/* Separatore tra i profili */}
+              {index < profiles.length - 1 && <hr />} 
             </div>
           ))
         )}
