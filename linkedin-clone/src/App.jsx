@@ -11,6 +11,8 @@ import MyFooter from "./components/MyFooter";
 import AdminArea from "./components/AdminArea";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
+import WorkingDetails from "./components/WorkingDetails";
+import PagError from "./components/PagError";
 
 function App() {
   return (
@@ -21,7 +23,9 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="*" element={<PagError />} />
             <Route path="/profile" element={<AdminArea />} />
+            <Route path="/workingdetails/:id" element={<WorkingDetails />} />
           </Routes>
 
           <MyFooter />

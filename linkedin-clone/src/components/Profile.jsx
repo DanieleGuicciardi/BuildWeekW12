@@ -5,10 +5,117 @@ import {
   Button,
   Badge,
   Card,
+  Modal,
+  Form,
+  Image
 } from "react-bootstrap";
-import ProfileImg from "./ProfileImg";
+import { useState } from "react";
 
 function Profile({ myProfile }) {
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    surname: "",
+    email: "",
+    username: "",
+    bio: "",
+    title: "",
+    area: "",
+  });
+  const [img, setImg] = useState(null);
+  const [showModalImg, setShowModalImg] = useState(false);
+
+  const userId = "679743ee16f6350015fecb7b";
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await modifyProfile();
+    setShowModal(false);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
+  const resetForm = () => {
+    setFormData({
+      name: "",
+    surname: "",
+    email: "",
+    username: "",
+    bio: "",
+    title: "",
+    area: "",
+    });
+  };
+
+  const modifyProfile = async () => {
+    try {
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/",
+        {
+          method: "PUT",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
+            "Content-type": "application/json; charset=UTF-8",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      if (response.ok) {
+        resetForm();
+      } else {
+        throw new Error("Errore durante la modifica dell'esperienza.");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleImgChange = (e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      setImg(selectedFile);
+    }
+  };
+
+  const handleSubmitImg = async (e) => {
+    e.preventDefault();
+    if (!img) {
+      alert("Seleziona un'immagine prima di caricare.");
+      return;
+    }
+    await postProfileImg();
+  };
+
+  const postProfileImg = async () => {
+    const formImg = new FormData();
+    formImg.append("profile", img);
+    try {
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`,
+        {
+          method: "POST",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
+          },
+          body: formImg,
+        }
+      );
+      if (response.ok) {
+        console.log("Esperienza aggiunta con successo!");
+        setShowModalImg(false);
+      } else {
+        throw new Error("Errore durante l'invio dell'esperienza.");
+      }
+    } catch (error) {
+      console.error("Errore:", error);
+    }
+  };
+
   return (
     <Container
       className="nav-space"
@@ -49,7 +156,20 @@ function Profile({ myProfile }) {
           className="text-start"
           style={{ marginTop: "-85px", position: "relative" }}
         >
-          <ProfileImg myProfile={myProfile} />
+          <Image
+            src={
+              myProfile.image
+                ? myProfile.image
+                : "https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg" // Immagine di default
+            }
+            roundedCircle
+            style={{
+              border: "4px solid white",
+              width: "120px",
+              height: "120px",
+              objectFit: "cover",
+            }}
+          />
           <Button
             variant="light"
             className="p-0"
@@ -62,6 +182,7 @@ function Profile({ myProfile }) {
               width: "35px",
               height: "35px",
             }}
+            onClick={() => setShowModalImg(true)}
           >
             <i className="bi bi-plus-lg text-primary"></i>
           </Button>
@@ -104,6 +225,7 @@ function Profile({ myProfile }) {
             style={{
               fontSize: "16px",
             }}
+            onClick={() => setShowModal(true)}
           >
             <i className="bi bi-pencil"></i>
           </Button>
@@ -198,6 +320,123 @@ function Profile({ myProfile }) {
           </Card>
         </Col>
       </Row>
+      <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Aggiorna Profilo</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
+              <Form.Label>Nome</Form.Label>
+              <Form.Control
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Inserisci il nome"
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Cognome</Form.Label>
+              <Form.Control
+                type="text"
+                name="surname"
+                value={formData.surname}
+                onChange={handleChange}
+                placeholder="Inserisci il cognome"
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Inserisci l'email"
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                placeholder="Inserisci l'username"
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Biografia</Form.Label>
+              <Form.Control
+                as="textarea"
+                name="bio"
+                value={formData.bio}
+                onChange={handleChange}
+                rows={3}
+                placeholder="Parlaci di te"
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Titolo</Form.Label>
+              <Form.Control
+                type="text"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+                placeholder="Titolo di studio"
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Area</Form.Label>
+              <Form.Control
+                type="text"
+                name="area"
+                value={formData.area}
+                onChange={handleChange}
+                placeholder="Inserisci l'area geografica"
+                required
+              />
+            </Form.Group>
+
+            <Button variant="primary" type="submit" className="w-50">
+              Aggiorna
+            </Button>
+          </Form>
+        </Modal.Body>
+      </Modal>
+
+      <Modal show={showModalImg} onHide={() => setShowModalImg(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Carica immagine del profilo</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form onSubmit={handleSubmitImg}>
+            <input
+              type="file"
+              onChange={handleImgChange}
+              accept="image/"
+              className="form-control"
+              required
+            />
+            <div className="mt-3">
+              <Button variant="primary" type="submit">
+                Carica
+              </Button>
+            </div>
+          </form>
+        </Modal.Body>
+      </Modal>
     </Container>
   );
 }

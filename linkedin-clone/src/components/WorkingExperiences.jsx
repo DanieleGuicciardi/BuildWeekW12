@@ -1,4 +1,5 @@
-import { Pencil, Trash } from "react-bootstrap-icons";
+import { Pencil, Trash, InfoCircle } from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
 
 const WorkExperience = ({
   experiences,
@@ -9,9 +10,10 @@ const WorkExperience = ({
 }) => {
   const date1 = new Date(experiences.startDate);
   const date2 = new Date(experiences.endDate);
+  const navigate = useNavigate();
 
   return (
-    <div className="container mt-4" key={experiences.id}>
+    <div className="container mt-4" key={experiences._id}>
       <div className="list-group">
         <div className="list-group-item list-group-item-action mb-3 shadow-sm">
           <div className="d-flex w-100 justify-content-between">
@@ -32,6 +34,11 @@ const WorkExperience = ({
             className="mx-2"
             onClick={() => modifyExperience(experiences)}
             style={{ cursor: "pointer" }}
+          />
+          <InfoCircle
+            onClick={() => navigate(`/workingdetails/${experiences._id}`)}
+            style={{ cursor: "pointer" }}
+            className="text-info"
           />
         </div>
       </div>
