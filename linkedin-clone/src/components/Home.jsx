@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-import { Alert, Col, Container, Row, Spinner } from "react-bootstrap";
+import { Alert,  Container, Row, Spinner, Col } from "react-bootstrap";
 import HomePosts from "./HomePosts";
-
+import SidebarHleft from "./SidebarHleft"
+import SidebarHright from "./SidebarHright"
 function Home() {
   const [data, setData] = useState([]);
   const [input, setInput] = useState("");
@@ -137,15 +138,14 @@ function Home() {
   }, []);
 
   return (
-    <div className="mt-5">
+    <div className="">
       <Container>
         <Row>
-          <Col lg={2}></Col>
-          <Col lg={7}>
+           <Col lg={3}>  <SidebarHleft/> </Col> 
+           <Col lg={7}> 
             {console.log(posts)}
-            <br />
-            <br />
-            <br />
+           
+           
             <form onSubmit={handleSubmit} className="my-4">
               <div className="bg-white rounded-2 p-2">
                 <h3>Crea un post</h3>
@@ -193,7 +193,7 @@ function Home() {
               </div>
             )}
           </Col>
-          <Col lg={3}></Col>
+          <Col lg={2}> <SidebarHright/> </Col>
         </Row>
       </Container>
     </div>

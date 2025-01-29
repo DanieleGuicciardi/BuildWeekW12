@@ -66,7 +66,8 @@ const Friends = () => {
                   </button>
                 </div>
               </div>
-              {index < profiles.length - 1 && <hr />}
+
+              {index < profiles.length - 1 && <hr />} 
             </div>
           ))
         )}
