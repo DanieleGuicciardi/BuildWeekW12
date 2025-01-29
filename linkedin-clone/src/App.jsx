@@ -18,16 +18,14 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <MyNavbar />
         <Container>
-          <MyNavbar />
-
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<PagError />} />
             <Route path="/profile" element={<AdminArea />} />
             <Route path="/workingdetails/:id" element={<WorkingDetails />} />
           </Routes>
-
           <MyFooter />
         </Container>
       </BrowserRouter>
