@@ -79,6 +79,12 @@ function Home() {
         }
       );
       if (response.ok) {
+        const newPost = await response.json();
+        console.log("Esperienza aggiunta con successo:", newPost);
+        if (img) {
+          console.log("Caricamento immagine per esperienza ID:", newPost._id);
+          await postImgExperiences(newPost._id);
+        }
         setEditId(null);
         setInput("");
         await getPost();
@@ -117,7 +123,7 @@ function Home() {
         );
 
         if (response.ok) {
-          const newPost = await response.json();
+        const newPost = await response.json();
         console.log("Esperienza aggiunta con successo:", newPost);
         if (img) {
           console.log("Caricamento immagine per esperienza ID:", newPost._id);
