@@ -164,7 +164,7 @@ const AdminExperiences = () => {
 
   return (
     <Container className="mt-4 ">
-      <div className="max-w-md mx-auto  bg-white rounded-2xl shadow-lg rounded-3 p-3">
+      <div className="max-w-md mx-auto  bg-white rounded-2xl shadow-lg rounded-3 p-3 ">
         <div className=" d-flex justify-content-between ">
           <h2 className="text-2xl font-semibold mb-6">Esperienze Lavorative</h2>
           <Button
