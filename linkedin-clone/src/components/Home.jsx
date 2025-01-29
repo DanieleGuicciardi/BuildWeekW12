@@ -3,9 +3,9 @@ import { Alert, Col, Container, Row, Spinner } from "react-bootstrap";
 import HomePosts from "./HomePosts";
 
 function Home() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
   const [input, setInput] = useState("");
-  const [posts, setPosts] = useState("");
+  const [posts, setPosts] = useState([]);
   const [show, setShow] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [editId, setEditId] = useState(null);
@@ -91,6 +91,7 @@ function Home() {
     e.preventDefault();
     if (editId) {
       await modifyPost(editId);
+      setEditId(null);
       await getPost();
     } else {
       try {
