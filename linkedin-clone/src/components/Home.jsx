@@ -11,6 +11,7 @@ function Home() {
   const [show, setShow] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [editId, setEditId] = useState(null);
+  const [img, setImg] = useState(null);
 
   const getPost = async () => {
     try {
@@ -93,10 +94,13 @@ function Home() {
     e.preventDefault();
     if (editId) {
       await modifyPost(editId);
-      console.log(editId);
-      setEditId(null);
-      await getPost();
-    } else {
+    }else{
+      await postPosts();
+    }
+    setEditId(null);
+  }
+
+  const postPosts = async () => {    
       try {
         const response = await fetch(
           "https://striveschool-api.herokuapp.com/api/posts/",
@@ -113,8 +117,13 @@ function Home() {
         );
 
         if (response.ok) {
-          const result = await response.json();
-          setData(result);
+          const newPost = await response.json();
+        console.log("Esperienza aggiunta con successo:", newPost);
+        if (img) {
+          console.log("Caricamento immagine per esperienza ID:", newPost._id);
+          await postImgExperiences(newPost._id);
+        }
+          setData(newPost);
           setShow(true);
 
           setTimeout(() => {
@@ -130,6 +139,37 @@ function Home() {
       } catch (error) {
         console.log(error);
       }
+    };
+
+  const postImgExperiences = async (id) => {
+    const formImg = new FormData();
+    formImg.append("post", img);
+    try {
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/${id}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
+          },
+          body: formImg,
+        }
+      );
+      if (response.ok) {
+        console.log("Esperienza aggiunta con successo!");
+      } else {
+        throw new Error("Errore durante l'invio dell'esperienza.");
+      }
+    } catch (error) {
+      console.error("Errore:", error);
+    }
+  };
+
+  const handleImageChange = (e) => {
+    if (e.target.files.length > 0) {
+      console.log("File selezionato:", e.target.files[0]);
+      setImg(e.target.files[0]);
     }
   };
 
@@ -157,8 +197,15 @@ function Home() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     className="form-control"
-                    placeholder="Scrivi qualcosa..."
-                    aria-label="Scrivi qualcosa"
+                    placeholder="Dicci a cosa stai pensando"
+                    aria-label="Dicci a cosa stai pensando"
+                  />
+                  <input
+                    type="file"
+                    onChange={handleImageChange}
+                    className="form-control"
+                    placeholder="Inserisci un'immagine al tuo post"
+                    aria-label="Inserisci un'immagine al tuo post"
                   />
                   <button type="submit" className="btn btn-primary">
                     {editId ? "Modifica" : "Invia"}
