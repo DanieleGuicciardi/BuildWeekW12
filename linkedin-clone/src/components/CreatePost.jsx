@@ -11,7 +11,6 @@ const CreatePost = function () {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aggiungi un ID univoco a ogni post, come un timestamp
     const newPost = { id: Date.now(), think: formData.think };
     setPosts([...posts, newPost]);
     setFormData({

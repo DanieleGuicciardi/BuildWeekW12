@@ -6,7 +6,7 @@ const Friends = () => {
   const [loading, setLoading] = useState(true);
 
   const token =
-    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk5NGM0ODhlOWNjZDAwMTUyMGFjODQiLCJpYXQiOjE3MzgwOTk3ODQsImV4cCI6MTczOTMwOTM4NH0.TnEv8DzxbMZlmYTLNUv0EOSLePSv6pK1nvxBnDHHeQM";
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE";
 
   const userId = [
     "67994c488e9ccd001520ac84",
@@ -66,6 +66,7 @@ const Friends = () => {
                   </button>
                 </div>
               </div>
+
               {index < profiles.length - 1 && <hr />} 
             </div>
           ))
