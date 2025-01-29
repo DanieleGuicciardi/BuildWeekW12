@@ -14,7 +14,9 @@ const AdminExperiences = () => {
     endDate: "",
     description: "",
     area: "",
+    image: "",
   });
+  const [img, setImg] = useState(null);
 
   const userId = "679743ee16f6350015fecb7b";
 
@@ -56,9 +58,39 @@ const AdminExperiences = () => {
         }
       );
       if (response.ok) {
-        console.log("Esperienza aggiunta con successo!");
+        const newExperience = await response.json();
+        console.log("Esperienza aggiunta con successo:", newExperience);
+        if (img) {
+          console.log("Caricamento immagine per esperienza ID:", newExperience._id);
+          await postImgExperiences(newExperience._id);
+        }
         await getExperiences();
         resetForm();
+      } else {
+        throw new Error("Errore durante l'invio dell'esperienza.");
+      }
+    } catch (error) {
+      console.error("Errore:", error);
+    }
+  };
+
+  const postImgExperiences = async (id) => {
+    const formImg = new FormData();
+    formImg.append("experience", img);
+    try {
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${id}/picture`,
+        {
+          method: "POST",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
+          },
+          body: formImg,
+        }
+      );
+      if (response.ok) {
+        console.log("Esperienza aggiunta con successo!");
       } else {
         throw new Error("Errore durante l'invio dell'esperienza.");
       }
@@ -106,6 +138,10 @@ const AdminExperiences = () => {
         }
       );
       if (response.ok) {
+        if (img) {
+          console.log("Caricamento immagine per esperienza ID:", id);
+          await postImgExperiences(id);
+        }
         await getExperiences();
         resetForm();
       } else {
@@ -154,9 +190,17 @@ const AdminExperiences = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+      const { name, value } = e.target;
+      setFormData({ ...formData, [name]: value });
+  }
+
+  const handleImageChange = (e) => {
+    if (e.target.files.length > 0) {
+      console.log("File selezionato:", e.target.files[0]);
+      setImg(e.target.files[0]);
+    }
   };
+  
 
   useEffect(() => {
     getExperiences();
@@ -170,7 +214,7 @@ const AdminExperiences = () => {
           <Button
             variant="link"
             className="text-dark p-0  fs-2 "
-            onClick={() => setShowModal(true)}
+            onClick={() => {resetForm() ; setShowModal(true)}}
           >
             <i className="bi bi-plus-lg"></i>
           </Button>
@@ -250,6 +294,17 @@ const AdminExperiences = () => {
                   onChange={handleChange}
                   placeholder="Inserisci l'area geografica"
                   required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Immagine</Form.Label>
+                <Form.Control
+                  type="file"
+                  name="image"
+                  onChange={handleImageChange}
+                  accept="image/"
+                  placeholder="Inserisci un'immagine"
                 />
               </Form.Group>
 
