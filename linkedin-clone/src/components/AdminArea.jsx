@@ -5,6 +5,7 @@ import { Row, Col } from "react-bootstrap";
 import Info from "./Info";
 import AdminExperiences from "./AdminExperiences";
 import CreatePost from "./CreatePost";
+import Friends from "./Friends";
 
 const AdminArea = () => {
   const [profiles, setProfile] = useState("");
@@ -71,6 +72,7 @@ const AdminArea = () => {
       </Col>
       <Col lg={4}>
         <Sidebar myProfile={myProfile} profiles={profiles} />
+        <Friends/>
       </Col>
     </Row>
   );
