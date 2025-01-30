@@ -8,7 +8,7 @@ const MyNavbar = function () {
   const [searchTerm, setSearchTerm] = useState(""); // Stato per la ricerca
   const navigate = useNavigate(); // Hook per la navigazione
 
-  // Funzione per ottenere i dati del profilo
+  
   const fetchProfileImage = async () => {
     try {
       const response = await fetch(
