@@ -1,10 +1,12 @@
 import { NavDropdown, Navbar, Container, Nav, Form } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/LI-In-Bug.png";
-import { Link } from "react-router-dom";
 
 const MyNavbar = function () {
   const [profileImage, setProfileImage] = useState("");
+  const [searchTerm, setSearchTerm] = useState(""); // Stato per la ricerca
+  const navigate = useNavigate(); // Hook per la navigazione
 
   
   const fetchProfileImage = async () => {
@@ -33,15 +35,26 @@ const MyNavbar = function () {
     fetchProfileImage();
   }, []);
 
+
+  //funzione per la searchbar
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim() !== "") {
+      navigate(`/jobs?search=${searchTerm}`); 
+    }
+  };
+
   return (
     <>
       <Navbar expand="lg" className="bg-white sticky-top">
         <Container className="justify-content-between">
           {/* Logo */}
-          <img src={logo} alt="LinkedIn Logo" className="logo-linkedin me-3" />
+          <Link to="/">
+            <img src={logo} alt="LinkedIn Logo" className="logo-linkedin me-3" />
+          </Link>
 
           {/* Search Bar */}
-          <Form className="d-flex flex-grow-1 me-4">
+          <Form className="d-flex flex-grow-1 me-4" onSubmit={handleSearch}>
             <div className="input-group w-100 navbarSearchbar">
               <span className="input-group-text border-0 search">
                 <i className="bi bi-search"></i>
@@ -51,6 +64,8 @@ const MyNavbar = function () {
                 placeholder="Cerca"
                 className="border-0 search"
                 aria-label="Cerca"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
           </Form>
