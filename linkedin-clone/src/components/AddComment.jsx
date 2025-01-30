@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
-const AddComment = ({ postId, showInputComment }) => {
+const AddComment = ({ postId, showInputComment, refreshComments }) => {
   const [comment, setComment] = useState({
     comment: "",
     rate: 1,
@@ -36,6 +36,7 @@ const AddComment = ({ postId, showInputComment }) => {
           rate: 1,
           elementId: postId,
         });
+        refreshComments();
       } else {
         throw new Error("Qualcosa è andato storto");
       }

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Comments from "./Comments";
+import AddComment from "./AddComment";
 
-const CommentArea = ({ postId }) => {
+const CommentArea = ({ postId, showInputComment, selectedComment }) => {
   const [comments, setComments] = useState([]);
 
   const getComments = async () => {
@@ -42,6 +43,11 @@ const CommentArea = ({ postId }) => {
     <div className="text-center">
       {/*{isLoading && <Loading />}
       {isError && <Error />}*/}
+      <AddComment
+        postId={selectedComment}
+        showInputComment={showInputComment}
+        refreshComments={getComments}
+      />
       <Comments
         commentsToShow={comments}
         postId={postId}

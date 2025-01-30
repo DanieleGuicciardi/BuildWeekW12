@@ -10,7 +10,6 @@ import {
 import Card from "react-bootstrap/Card";
 import { useState } from "react";
 import CommentArea from "./CommentArea";
-import AddComment from "./AddComment";
 import { useNavigate } from "react-router-dom";
 
 const HomePosts = ({ posts, deletePost, modifyPost }) => {
@@ -102,11 +101,7 @@ const HomePosts = ({ posts, deletePost, modifyPost }) => {
           </div>
         </div>
       </Card.Footer>
-      <AddComment
-        postId={selectedComment}
-        showInputComment={showInputComment}
-      />
-      <CommentArea postId={posts._id} />
+      <CommentArea postId={posts._id} showInputComment={showInputComment} selectedComment={selectedComment}/>
     </Card>
   );
 };
