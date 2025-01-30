@@ -1,7 +1,7 @@
 const Info = ({ myProfile }) => {
   return (
     <div className="container mt-4">
-      <div className="card shadow-sm">
+      <div className="card">
         <div className="card-body">
           <h2 className="card-title mb-4">Informazioni</h2>
           {myProfile ? (

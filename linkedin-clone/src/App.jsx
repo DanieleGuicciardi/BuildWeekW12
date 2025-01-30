@@ -14,6 +14,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import WorkingDetails from "./components/WorkingDetails";
 import PagError from "./components/PagError";
 import Home from "./components/Home";
+import JobsPage from "./components/JobsPage";
+import Postdetails from "./components/PostDetails";
 
 function App() {
   return (
@@ -26,8 +28,10 @@ function App() {
             <Route path="*" element={<PagError />} />
             <Route path="/profile" element={<AdminArea />} />
             <Route path="/workingdetails/:id" element={<WorkingDetails />} />
+            <Route path="/jobs" element={<JobsPage />} />
+            <Route path="/postdetails/:id" element={<Postdetails />} />
           </Routes>
-          <MyFooter />
+          {location.pathname !== "/jobs" && <MyFooter />}     {/* serve a nascondere il footer nella pagina jobs */}
         </Container>
       </BrowserRouter>
     </>
