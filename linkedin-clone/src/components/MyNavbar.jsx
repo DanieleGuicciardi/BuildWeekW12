@@ -35,7 +35,7 @@ const MyNavbar = function () {
 
   return (
     <>
-      <Navbar expand="lg" className="bg-white fixed-top">
+      <Navbar expand="lg" className="bg-white sticky-top">
         <Container className="justify-content-between">
           {/* Logo */}
           <img src={logo} alt="LinkedIn Logo" className="logo-linkedin me-3" />
@@ -67,7 +67,6 @@ const MyNavbar = function () {
                 <Nav.Link
                   as={Link}
                   to={"/"}
-                  href="#action1"
                   className="d-flex flex-column align-items-center me-3"
                 >
                   <i className="bi bi-house-door-fill fs-5"></i>
