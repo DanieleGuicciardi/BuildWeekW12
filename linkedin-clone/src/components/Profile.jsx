@@ -17,7 +17,6 @@ function Profile({ myProfile }) {
     name: "",
     surname: "",
     email: "",
-    username: "",
     bio: "",
     title: "",
     area: "",
@@ -43,7 +42,6 @@ function Profile({ myProfile }) {
       name: "",
     surname: "",
     email: "",
-    username: "",
     bio: "",
     title: "",
     area: "",
@@ -359,17 +357,6 @@ function Profile({ myProfile }) {
                 onChange={handleChange}
                 placeholder="Inserisci l'email"
                 required
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Username</Form.Label>
-              <Form.Control
-                type="text"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-                placeholder="Inserisci l'username"
               />
             </Form.Group>
 

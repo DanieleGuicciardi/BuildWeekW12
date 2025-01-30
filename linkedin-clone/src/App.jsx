@@ -31,7 +31,7 @@ function App() {
             <Route path="/jobs" element={<JobsPage />} />
             <Route path="/postdetails/:id" element={<Postdetails />} />
           </Routes>
-          <MyFooter />
+          {location.pathname !== "/jobs" && <MyFooter />}     {/* serve a nascondere il footer nella pagina jobs */}
         </Container>
       </BrowserRouter>
     </>

@@ -6,13 +6,24 @@ import {
   Share,
   InfoCircle,
 } from "react-bootstrap-icons";
-import Card from "react-bootstrap/Card";
-import { useNavigate } from "react-router-dom";
+
+import Card from 'react-bootstrap/Card';
+import { useState } from 'react'
+import CommentArea from "./CommentArea";
+import AddComment from "./AddComment"
+
 
 const HomePosts = ({ posts, deletePost, modifyPost }) => {
+  const [selectedComment, setSelectedComment] = useState(null);
+  const [showInputComment, setShowInputComment] = useState(false);
+
   const postDate = new Date(posts.createdAt);
   const myId = "679743ee16f6350015fecb7b";
   const navigate = useNavigate();
+
+  const changeSelectedComment = (postId) => {
+    setSelectedComment(postId)
+  }
 
   return (
     <Card className="mb-3">
@@ -75,7 +86,7 @@ const HomePosts = ({ posts, deletePost, modifyPost }) => {
             <HandThumbsUp className="me-2" />
             <span>Mi piace</span>
           </div>
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center" onClick={() =>{changeSelectedComment(posts._id); setShowInputComment(true)}}>
             <ChatDots className="me-2" />
             <span>Commenta</span>
           </div>
@@ -84,8 +95,10 @@ const HomePosts = ({ posts, deletePost, modifyPost }) => {
             <span>Condividi</span>
           </div>
         </div>
-      </Card.Footer>
-    </Card>
+        </Card.Footer>
+        <AddComment postId={selectedComment} showInputComment={showInputComment}/>
+        <CommentArea postId={posts._id}/>
+      </Card>
   );
 };
 export default HomePosts;

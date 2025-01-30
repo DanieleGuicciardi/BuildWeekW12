@@ -61,7 +61,10 @@ const AdminExperiences = () => {
         const newExperience = await response.json();
         console.log("Esperienza aggiunta con successo:", newExperience);
         if (img) {
-          console.log("Caricamento immagine per esperienza ID:", newExperience._id);
+          console.log(
+            "Caricamento immagine per esperienza ID:",
+            newExperience._id
+          );
           await postImgExperiences(newExperience._id);
         }
         await getExperiences();
@@ -141,7 +144,10 @@ const AdminExperiences = () => {
         const newExperienceImg = await response.json();
         console.log("Esperienza aggiunta con successo:", newExperienceImg);
         if (img) {
-          console.log("Caricamento immagine per esperienza ID:", newExperienceImg._id);
+          console.log(
+            "Caricamento immagine per esperienza ID:",
+            newExperienceImg._id
+          );
           await postImgExperiences(newExperienceImg._id);
         }
         await getExperiences();
@@ -193,9 +199,9 @@ const AdminExperiences = () => {
   };
 
   const handleChange = (e) => {
-      const { name, value } = e.target;
-      setFormData({ ...formData, [name]: value });
-  }
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleImageChange = (e) => {
     if (e.target.files.length > 0) {
@@ -203,7 +209,6 @@ const AdminExperiences = () => {
       setImg(e.target.files[0]);
     }
   };
-  
 
   useEffect(() => {
     getExperiences();
@@ -211,13 +216,16 @@ const AdminExperiences = () => {
 
   return (
     <Container className="mt-4 ">
-      <div className="max-w-md mx-auto  bg-white rounded-2xl shadow-lg rounded-3 p-3 ">
+      <div className="max-w-md mx-auto border bg-white rounded-2xl rounded-3 p-3 ">
         <div className=" d-flex justify-content-between ">
           <h2 className="text-2xl font-semibold mb-6">Esperienze Lavorative</h2>
           <Button
             variant="link"
             className="text-dark p-0  fs-2 "
-            onClick={() => {resetForm() ; setShowModal(true)}}
+            onClick={() => {
+              resetForm();
+              setShowModal(true);
+            }}
           >
             <i className="bi bi-plus-lg"></i>
           </Button>
