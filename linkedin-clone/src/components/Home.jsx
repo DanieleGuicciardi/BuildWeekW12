@@ -28,7 +28,7 @@ function Home() {
       if (response.ok) {
         const result = await response.json();
         const datas = result.reverse();
-        setPosts(datas.slice(0, 50));
+        setPosts(datas.slice(0, 15));
 
         setIsLoading(false);
 
