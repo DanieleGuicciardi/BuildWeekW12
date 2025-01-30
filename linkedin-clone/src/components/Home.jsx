@@ -184,7 +184,6 @@ function Home() {
   }, []);
 
   return (
-    <div className="">
       <Container>
         <Row>
           <Col lg={3}>
@@ -249,12 +248,10 @@ function Home() {
             )}
           </Col>
           <Col lg={3}>
-            
             <SidebarHright />
           </Col>
         </Row>
       </Container>
-    </div>
   );
 }
 
