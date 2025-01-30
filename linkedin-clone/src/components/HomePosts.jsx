@@ -7,11 +7,11 @@ import {
   InfoCircle,
 } from "react-bootstrap-icons";
 
-import Card from 'react-bootstrap/Card';
-import { useState } from 'react'
+import Card from "react-bootstrap/Card";
+import { useState } from "react";
 import CommentArea from "./CommentArea";
-import AddComment from "./AddComment"
-
+import AddComment from "./AddComment";
+import { useNavigate } from "react-router-dom";
 
 const HomePosts = ({ posts, deletePost, modifyPost }) => {
   const [selectedComment, setSelectedComment] = useState(null);
@@ -22,8 +22,8 @@ const HomePosts = ({ posts, deletePost, modifyPost }) => {
   const navigate = useNavigate();
 
   const changeSelectedComment = (postId) => {
-    setSelectedComment(postId)
-  }
+    setSelectedComment(postId);
+  };
 
   return (
     <Card className="mb-3">
@@ -86,7 +86,13 @@ const HomePosts = ({ posts, deletePost, modifyPost }) => {
             <HandThumbsUp className="me-2" />
             <span>Mi piace</span>
           </div>
-          <div className="d-flex align-items-center" onClick={() =>{changeSelectedComment(posts._id); setShowInputComment(true)}}>
+          <div
+            className="d-flex align-items-center"
+            onClick={() => {
+              changeSelectedComment(posts._id);
+              setShowInputComment(true);
+            }}
+          >
             <ChatDots className="me-2" />
             <span>Commenta</span>
           </div>
@@ -95,10 +101,13 @@ const HomePosts = ({ posts, deletePost, modifyPost }) => {
             <span>Condividi</span>
           </div>
         </div>
-        </Card.Footer>
-        <AddComment postId={selectedComment} showInputComment={showInputComment}/>
-        <CommentArea postId={posts._id}/>
-      </Card>
+      </Card.Footer>
+      <AddComment
+        postId={selectedComment}
+        showInputComment={showInputComment}
+      />
+      <CommentArea postId={posts._id} />
+    </Card>
   );
 };
 export default HomePosts;
