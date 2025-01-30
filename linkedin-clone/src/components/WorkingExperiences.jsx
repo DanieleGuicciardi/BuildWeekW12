@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 const WorkExperience = ({
   experiences,
   deleteExperience,
-  // setShowModal,
+
   modifyExperience,
-  // setModify,
 }) => {
   const date1 = new Date(experiences.startDate);
   const date2 = new Date(experiences.endDate);

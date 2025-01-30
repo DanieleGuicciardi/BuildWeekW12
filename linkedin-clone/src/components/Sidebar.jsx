@@ -1,70 +1,11 @@
-//import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Pencil, PersonPlusFill } from "react-bootstrap-icons";
 
 const Sidebar = ({ myProfile, profiles }) => {
-  {
-    /*const [profile, setProfile] = useState("");
-  const [myProfile, setMyProfile] = useState("");
-
-  const getProfile = async () => {
-    try {
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
-          },
-        }
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setProfile(data);
-        console.log("Profili:", data);
-      } else {
-        throw new Error("Errore nel recupero dati..");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getMyProfile = async () => {
-    try {
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/me",
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
-          },
-        }
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setMyProfile(data);
-        console.log("Mio Profilo:", data);
-      } else {
-        throw new Error("Errore nel recupero dati..");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getProfile();
-    getMyProfile();
-  }, []);*/
-  }
-
   return (
     <>
       {myProfile && (
-
         <div className="border border-1 border-secondary-subtle rounded-2 profileSidebar">
-
           <Container>
             <div className="d-flex justify-content-between">
               <div>

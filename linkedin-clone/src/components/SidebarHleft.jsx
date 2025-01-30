@@ -56,7 +56,7 @@ const SidebarHleft = function () {
           </Card.Title>
           <Card.Text className="text-muted">{profile.area}</Card.Text>
           <button className="btn border-dark w-100 text-start btn-home">
-            {" "}
+            
             <i className="bi bi-plus pe-3 "></i>Esperienza
           </button>
         </Card.Body>
