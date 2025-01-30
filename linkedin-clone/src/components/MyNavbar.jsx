@@ -48,12 +48,11 @@ const MyNavbar = function () {
     <>
       <Navbar expand="lg" className="bg-white sticky-top">
         <Container className="justify-content-between">
-          {/* Logo */}
+
           <Link to="/">
             <img src={logo} alt="LinkedIn Logo" className="logo-linkedin me-3" />
           </Link>
 
-          {/* Search Bar */}
           {location.pathname !== "/jobs" && (
           <Form className="d-flex flex-grow-1 me-4" onSubmit={handleSearch}>
             <div className="input-group w-100 navbarSearchbar">
@@ -71,14 +70,13 @@ const MyNavbar = function () {
             </div>
           </Form>
         )}
-          {/* Navbar Collapse */}
+
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll" className="flex-grow-1">
             <Nav
               className="d-flex justify-content-end align-items-center"
               navbarScroll
             >
-              {/* Link con icone */}
               <div className="d-flex align-items-center text-center">
                 <Nav.Link
                   as={Link}
@@ -119,7 +117,6 @@ const MyNavbar = function () {
                 </Nav.Link>
               </div>
 
-              {/* Dropdown - Profilo */}
               <div className="d-flex align-items-center text-center me-3 profileDropdown">
                 {profileImage ? (
                   <img
@@ -149,8 +146,6 @@ const MyNavbar = function () {
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>
-
-              {/* Dropdown - Altro */}
               <div className="d-flex align-items-center text-center">
                 <div className="d-inline">
                   <i className="bi bi-border-all fs-5"></i>

@@ -1,4 +1,5 @@
 import Jobs from "./Jobs";
+import JobsFooter from "./JobsFooter";
 import SidebarHleft from "./SidebarHleft";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -13,6 +14,7 @@ const JobsPage = () => {
           <Jobs/>
           </Col>
           <Col lg={3}>
+          <JobsFooter/>
           </Col>
         </Row>
       </Container>
