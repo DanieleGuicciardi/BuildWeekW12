@@ -54,6 +54,7 @@ const MyNavbar = function () {
           </Link>
 
           {/* Search Bar */}
+          {location.pathname !== "/jobs" && (
           <Form className="d-flex flex-grow-1 me-4" onSubmit={handleSearch}>
             <div className="input-group w-100 navbarSearchbar">
               <span className="input-group-text border-0 search">
@@ -61,7 +62,7 @@ const MyNavbar = function () {
               </span>
               <Form.Control
                 type="search"
-                placeholder="Cerca"
+                placeholder="Cerca lavori..."
                 className="border-0 search"
                 aria-label="Cerca"
                 value={searchTerm}
@@ -69,7 +70,7 @@ const MyNavbar = function () {
               />
             </div>
           </Form>
-
+        )}
           {/* Navbar Collapse */}
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll" className="flex-grow-1">
