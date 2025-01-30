@@ -51,7 +51,9 @@ const SidebarHleft = function () {
           <Button className="home-plus text-center pb-1">+</Button>
         </div>
         <Card.Body>
-          <Card.Title>{profile.name}</Card.Title>
+          <Card.Title>
+            {profile.name} {profile.surname}
+          </Card.Title>
           <Card.Text className="text-muted">{profile.area}</Card.Text>
           <button className="btn border-dark w-100 text-start btn-home">
             {" "}
