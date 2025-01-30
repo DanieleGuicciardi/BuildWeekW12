@@ -80,7 +80,8 @@ const MyNavbar = function () {
                   <span>Rete</span>
                 </Nav.Link>
                 <Nav.Link
-                  href="#action3"
+                  as={Link}
+                  to={"/jobs"}
                   className="d-flex flex-column align-items-center me-3"
                 >
                   <i className="bi bi-duffle-fill fs-5"></i>
