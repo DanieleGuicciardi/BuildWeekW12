@@ -188,8 +188,8 @@ function Home() {
       <Container>
         <Row>
           <Col lg={3}>
-            {" "}
-            <SidebarHleft />{" "}
+           
+            <SidebarHleft />
           </Col>
           <Col lg={6}>
             {console.log(posts)}
@@ -249,8 +249,8 @@ function Home() {
             )}
           </Col>
           <Col lg={3}>
-            {" "}
-            <SidebarHright />{" "}
+            
+            <SidebarHright />
           </Col>
         </Row>
       </Container>

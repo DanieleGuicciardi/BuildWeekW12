@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 const WorkExperience = ({
   experiences,
   deleteExperience,
-  // setShowModal,
+
   modifyExperience,
-  // setModify,
 }) => {
   const date1 = new Date(experiences.startDate);
   const date2 = new Date(experiences.endDate);
@@ -18,10 +17,10 @@ const WorkExperience = ({
       key={experiences._id}
       style={{
         backgroundImage: `url(${experiences.image})`,
-        backgroundSize: "cover", 
-        backgroundPosition: "center", 
-        borderRadius: "10px", 
-        padding: "20px", 
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        borderRadius: "10px",
+        padding: "20px",
         color: "white",
         textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
       }}
@@ -38,7 +37,7 @@ const WorkExperience = ({
           <p className="mb-1 text-muted">{experiences.company}</p>
           <p className="mb-1">{experiences.description}</p>
           <p className="mb-1">{experiences.area}</p>
-          
+
           <Trash
             onClick={() => deleteExperience(experiences._id)}
             style={{ cursor: "pointer", color: "red" }}
