@@ -1,6 +1,6 @@
 import { ListGroup, Button } from "react-bootstrap";
 
-const myElementId = "679b3749e85bad001529b493";
+const myAuthor = "3mx9g@e-record.com";
 
 const Comments = ({ commentsToShow, postId, refreshComments }) => {
   const deleteComment = async (commentId) => {
@@ -36,7 +36,7 @@ const Comments = ({ commentsToShow, postId, refreshComments }) => {
             className="d-flex justify-content-between align-items-center"
           >
             {comment.comment}
-            {myElementId === comment.elementId ? (
+            {myAuthor === comment.author ? (
               <Button
                 variant="danger"
                 className="ms-2"
@@ -45,7 +45,7 @@ const Comments = ({ commentsToShow, postId, refreshComments }) => {
                 Elimina
               </Button>
             ) : (
-              <span>{comment.author}</span>
+              <span className="text-secondary">{comment.author}</span>
             )}
           </ListGroup.Item>
         ))}
