@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-import { Alert, Container, Row, Spinner, Col } from "react-bootstrap";
+import { Alert, Container, Row, Spinner, Col, Form, Modal, Button } from "react-bootstrap";
 import HomePosts from "./HomePosts";
 import SidebarHleft from "./SidebarHleft";
 import SidebarHright from "./SidebarHright";
@@ -251,6 +251,41 @@ function Home() {
             <SidebarHright />
           </Col>
         </Row>
+        {/* <Modal show={showModal} onHide={handleCloseModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Modifica il tuo post</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={modifyPost}>
+            <Form.Group className="mb-3">
+              <Form.Label>Testo</Form.Label>
+              <Form.Control
+                type="text"
+                name="testo"
+                value={formData.testo}
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, testo: e.target.value }))
+                }
+                placeholder="Modifica il testo del post..."
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Immagine</Form.Label>
+              <Form.Control
+                type="file"
+                onChange={handleImgChange}
+                accept="image/*"
+                className="form-control"
+              />
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+              Salva modifiche
+            </Button>
+          </Form>
+        </Modal.Body>
+      </Modal> */}
       </Container>
   );
 }
