@@ -37,20 +37,51 @@ body {
 }
 
 .nav-space {
-  margin-top: 100px;
+  margin-top: 10px;
 }
 
-
 .profileSidebar {
-  margin-top: 6em;
-  background-color: white;           /* spazio superiore per la sidebar */
+  margin-top: 10px;
+  background-color: white;
 }
 
 .navbarSearchbar {
-  margin-right: 10em;                       
+  margin-right: 10em;
 }
 
 .profileDropdown {
   border-right: solid 1px #d3d3d3;
 }
 
+
+.side-text{  
+  font-size: 13px ;
+}
+
+.home-plus {
+  position: absolute;
+  top: 25%;
+  left: 31%;
+  font-size: 25px;
+  color: #0B66C2;
+  background-color: white;
+  width: 25px;  
+  height: 25px; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; 
+ 
+  cursor: pointer; 
+  padding: 0; 
+}
+
+.btn-home{  
+  background-color: #DFDEDA;
+}
+
+.sidebar-top {
+  background-color: black;
+  height: 70px;
+  
+}
