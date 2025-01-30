@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const MyNavbar = function () {
   const [profileImage, setProfileImage] = useState("");
 
-  // Funzione per ottenere i dati del profilo
+  
   const fetchProfileImage = async () => {
     try {
       const response = await fetch(
@@ -20,7 +20,7 @@ const MyNavbar = function () {
       );
       if (response.ok) {
         const data = await response.json();
-        setProfileImage(data.image); // Salva l'immagine nel state
+        setProfileImage(data.image);
       } else {
         console.error("Errore nel recupero dell'immagine del profilo.");
       }
