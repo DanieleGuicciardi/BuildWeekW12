@@ -3,23 +3,35 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(""); 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [company, setCompany] = useState(""); // Stato per azienda
+  const [category, setCategory] = useState(""); // Stato per categoria
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const location = useLocation();
   const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
+
   const searchQuery = params.get("search");
+  const companyQuery = params.get("company");
+  const categoryQuery = params.get("category");
   const limit = params.get("limit") || 10;
 
   const fetchJobs = async () => {
     setLoading(true);
     setError(null);
 
-    let apiUrl = `https://strive-benchmark.herokuapp.com/api/jobs?limit=${limit}`;
+    let apiUrl = "https://strive-benchmark.herokuapp.com/api/jobs?limit=10";
+
     if (searchQuery) {
       apiUrl += `&search=${searchQuery}`;
+    }
+    if (companyQuery) {
+      apiUrl += `&company=${companyQuery}`;
+    }
+    if (categoryQuery) {
+      apiUrl += `&category=${categoryQuery}&limit=10`;
     }
 
     try {
@@ -38,35 +50,70 @@ const Jobs = () => {
 
   useEffect(() => {
     fetchJobs();
-  }, [searchQuery, limit]);
+  }, [searchQuery, companyQuery, categoryQuery, limit]);
 
   const handleSearch = (e) => {
     e.preventDefault();
+    const queryParams = new URLSearchParams();
+
     if (searchTerm.trim() !== "") {
-      navigate(`/jobs?search=${searchTerm}&limit=10`);
+      queryParams.set("search", searchTerm);
     }
+    if (company.trim() !== "") {
+      queryParams.set("company", company);
+    }
+    if (category.trim() !== "") {
+      queryParams.set("category", category);
+      queryParams.set("limit", 10);
+    }
+
+    navigate(`/jobs?${queryParams.toString()}`);
   };
 
   return (
     <div className="container mt-4">
+      <h1 className="mb-4 text-center">Offerte di Lavoro</h1>
 
-      <div className="d-flex justify-content-center mb-4">     {/* searchbar */}
-        <form className="input-group w-50" onSubmit={handleSearch}>
-          <input
-            type="search"
-            className="form-control"
-            placeholder="Cerca lavori..."
-            aria-label="Cerca"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <button className="btn btn-primary" type="submit">
-            <i className="bi bi-search"></i>
-          </button>
+      {/* Form per ricerca avanzata */}
+      <div className="d-flex justify-content-center mb-4">
+        <form className="w-75" onSubmit={handleSearch}>
+          <div className="input-group mb-2">
+            <input
+              type="search"
+              className="form-control"
+              placeholder="Cerca lavoro"
+              aria-label="Cerca"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          <div className="input-group mb-2">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Filtra per azienda"
+              aria-label="Azienda"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+            />
+          </div>
+          <div className="input-group mb-2">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Filtra per categoria"
+              aria-label="Categoria"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            />
+          </div>
+          <div className="d-flex justify-content-center">
+            <button className="btn btn-primary" type="submit">
+              Cerca
+            </button>
+          </div>
         </form>
       </div>
-
-      <h1 className="mb-4 text-center">Offerte di Lavoro</h1>
 
       {loading && <p className="text-center">Caricamento in corso...</p>}
       {error && <p className="text-danger text-center">Errore: {error}</p>}
