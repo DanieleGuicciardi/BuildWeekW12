@@ -24,7 +24,6 @@ const SidebarHright = () => {
     <Card className="mt-3 border-0 shadow-sm rounded">
       <Card.Body>
         <Card.Title className="d-flex align-items-center mb-3">
-          <Newspaper className="me-2 text-primary" size={20} />
           Notizie principali
         </Card.Title>
 
