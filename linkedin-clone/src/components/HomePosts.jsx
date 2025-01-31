@@ -52,7 +52,7 @@ const HomePosts = ({ posts, deletePost, modifyPost }) => {
                 <Pencil
                   style={{ cursor: "pointer", color: "#0d6efd" }}
                   title="Modifica post"
-                  onClick={() => modifyPost(posts._id, posts.text)}
+                  onClick={() => modifyPost(posts._id)}
                   className="me-2"
                 />
                 <InfoCircle
