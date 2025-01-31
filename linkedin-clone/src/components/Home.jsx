@@ -275,8 +275,8 @@ function Home() {
         <Col lg={6}>
           {console.log(posts)}
 
-          <form onSubmit={handleSubmit} className="my-4">
-            <div className="bg-white rounded-2 p-2">
+          <form onSubmit={handleSubmit} className=" mt-3 mb-4 ">
+            <div className="bg-white rounded-2 p-2 border">
               <h3>Crea un post</h3>
 
               <div className="card p-3 shadow-sm mt-3">
