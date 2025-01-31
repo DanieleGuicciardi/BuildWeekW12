@@ -45,14 +45,14 @@ const MyNavbar = function () {
 
   return (
     <>
-      <Navbar expand="lg" className="bg-white sticky-top">
-        <Container>
-          {/* Logo */}
+
+      <Navbar expand="md" className="bg-white sticky-top ">
+        <Container className="justify-content-between">
+
           <Link to="/">
             <img src={logo} alt="LinkedIn Logo" className="logo-linkedin me-3" />
           </Link>
 
-          {/* Search Bar o div invisibile per mantenere la spaziatura */}
           <div className="flex-grow-1 me-4">
             {location.pathname !== "/jobs" ? (
               <Form className="d-flex w-100" onSubmit={handleSearch}>

@@ -28,7 +28,7 @@ const Sidebar = ({ myProfile, profiles }) => {
         </div>
       )}
       {profiles && (
-        <div className="border border-1 border-secondary-subtle rounded-2 p-2 mt-3 bg-white">
+        <div className="border border-1 border-secondary-subtle rounded-2 p-2 mt-3 mx-2 bg-white">
           <Container>
             <h6>Persone che potresti conoscere</h6>
             <p className="text-secondary">Dal tuo settore</p>

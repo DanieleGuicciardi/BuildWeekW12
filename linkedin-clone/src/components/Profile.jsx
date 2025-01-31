@@ -269,7 +269,7 @@ function Profile({ myProfile }) {
 
       <Row className="mt-3 pb-3">
         <Col md={6} className="text-start ps-3">
-          <Card className="p-2 shadow-sm position-relative">
+          <Card className="p-2 shadow-sm position-relative mb-sm-3">
             <Button
               variant="link"
               className="position-absolute top-0 end-0 p-0 m-1 text-muted"
@@ -277,7 +277,7 @@ function Profile({ myProfile }) {
             >
               <i className="bi bi-x"></i>
             </Button>
-            <h6 className="m-0" style={{ fontSize: "14px" }}>
+            <h6 className="m-0 " style={{ fontSize: "14px" }}>
               Mostra ai recruiter che sei disponibile a lavorare:
             </h6>
             <p className="text-muted" style={{ fontSize: "14px" }}>
