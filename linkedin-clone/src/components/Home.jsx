@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { Alert, Container, Row, Spinner, Col, Form, Modal, Button } from "react-bootstrap";
@@ -12,6 +13,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [editId, setEditId] = useState(null);
   const [img, setImg] = useState(null);
+  const [postLimit, setPostLimit] = useState(15);
 
   const getPost = async () => {
     try {
@@ -28,11 +30,12 @@ function Home() {
       if (response.ok) {
         const result = await response.json();
         const datas = result.reverse();
-        setPosts(datas.slice(0, 15));
+
+        setPosts(datas.slice(0, postLimit));
 
         setIsLoading(false);
 
-        console.log("Result: ", result);
+        console.log("Post caricati: ", datas.slice(0, postLimit));
       } else {
         throw new Error("Errore nel recupero dati");
       }
@@ -179,9 +182,13 @@ function Home() {
     }
   };
 
+  const loadMorePosts = () => {
+    setPostLimit(prevLimit => prevLimit + 15);
+  };
+
   useEffect(() => {
     getPost();
-  }, []);
+  }, [postLimit]);
 
   return (
     <Container>
@@ -250,6 +257,11 @@ function Home() {
             <SidebarHright />
           </Col>
         </Row>
+        <Container className="text-center my-3">
+        <Button onClick={loadMorePosts} variant="primary">
+          Vedi altro
+        </Button>
+      </Container>
         {/* <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>Modifica il tuo post</Modal.Title>
