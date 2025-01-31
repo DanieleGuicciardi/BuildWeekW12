@@ -31,10 +31,7 @@ const Comments = ({ commentsToShow, postId, refreshComments }) => {
       {commentsToShow
         .filter((comment) => comment.elementId === postId)
         .map((comment) => (
-          <ListGroup.Item
-            key={comment._id}
-            className="d-flex justify-content-between align-items-center text-break"
-          >
+          <ListGroup.Item key={comment._id} className=" text-start text-break">
             {comment.comment}
             {myAuthor === comment.author ? (
               <Button
@@ -45,7 +42,15 @@ const Comments = ({ commentsToShow, postId, refreshComments }) => {
                 Elimina
               </Button>
             ) : (
-              <span className="text-secondary">{comment.author}</span>
+              <>
+                <div className="text-secondary d-flex justify-content-between align-items-center m-0">
+                  <p className="m-0">{comment.author}</p>
+                  <p className="m-0">
+                    {comment.createdAt.slice(0, 10)} -{" "}
+                    {comment.createdAt.slice(12, 16)}
+                  </p>
+                </div>
+              </>
             )}
           </ListGroup.Item>
         ))}
