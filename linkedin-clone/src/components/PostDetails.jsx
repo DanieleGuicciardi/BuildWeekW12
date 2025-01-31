@@ -117,7 +117,7 @@ function Postdetails() {
                     )}
                   </Card.Body>
                 </Card>
-                <Card className="shadow-sm border-0 d-inline w-50 h-100">
+                <Card className="shadow-sm border-0 d-inline w-50 h-100 ms-1">
                   <Card.Body className="w-100 h-100">
                     <Card.Title className="text-primary">Commenti</Card.Title>
 
