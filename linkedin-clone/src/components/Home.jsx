@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import {
@@ -22,6 +23,8 @@ function Home() {
   const [editId, setEditId] = useState(null);
   const [img, setImg] = useState(null);
   const [myProfile, setMyProfile] = useState("");
+  const [postLimit, setPostLimit] = useState(15);
+
 
   const getPost = async () => {
     try {
@@ -38,11 +41,12 @@ function Home() {
       if (response.ok) {
         const result = await response.json();
         const datas = result.reverse();
-        setPosts(datas.slice(0, 15));
+
+        setPosts(datas.slice(0, postLimit));
 
         setIsLoading(false);
 
-        console.log("Result: ", result);
+        console.log("Post caricati: ", datas.slice(0, postLimit));
       } else {
         throw new Error("Errore nel recupero dati");
       }
@@ -211,12 +215,14 @@ function Home() {
     } catch (error) {
       console.log(error);
     }
+  const loadMorePosts = () => {
+    setPostLimit(prevLimit => prevLimit + 15);
   };
 
   useEffect(() => {
     getPost();
     getMyProfile();
-  }, []);
+  }, [postLimit]);
 
   return (
     <Container>
@@ -311,6 +317,32 @@ function Home() {
         </Col>
       </Row>
       {/* <Modal show={showModal} onHide={handleCloseModal} centered>
+            {posts && (
+              <div>
+                {posts.map((posts) => (
+                  <HomePosts
+                    key={posts._id}
+                    posts={posts}
+                    deletePost={deletePost}
+                    modifyPost={() => {
+                      setEditId(posts._id);
+                      setInput(posts.text);
+                    }}
+                  />
+                ))}
+              </div>
+            )}
+          </Col>
+          <Col lg={3}>
+            <SidebarHright />
+          </Col>
+        </Row>
+        <Container className="text-center my-3">
+        <Button onClick={loadMorePosts} variant="primary">
+          Vedi altro
+        </Button>
+      </Container>
+        {/* <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>Modifica il tuo post</Modal.Title>
         </Modal.Header>
