@@ -12,6 +12,7 @@ const Friends = () => {
     "67994c488e9ccd001520ac84",
     "679743ee16f6350015fecb7b",
     "6799f47cdbf20300152ae838",
+    "679cdd4230c48d001593b383",
   ];
 
   useEffect(() => {
