@@ -229,7 +229,7 @@ function Profile({ myProfile }) {
               }}
               onClick={() => setShowModal(true)}
             >
-              <i className="bi bi-pencil"></i>
+              <i className="bi bi-pencil fs-5"></i>
             </Button>
           </Col>
         </Row>
