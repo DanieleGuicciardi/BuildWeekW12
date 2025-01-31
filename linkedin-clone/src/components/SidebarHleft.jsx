@@ -68,7 +68,7 @@ const SidebarHleft = function () {
         </div>
       </Card>
 
-      <Card className="mt-3">
+      <Card className="mt-3 d-sm-none d-lg-block">
         <Card.Body>
           <h6>
             <i className="bi bi-cloud-download-fill"></i> Elementi salvati
