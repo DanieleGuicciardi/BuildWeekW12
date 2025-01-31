@@ -1,6 +1,5 @@
 import { Card, Button } from "react-bootstrap";
 import { useState } from "react";
-import { Newspaper } from "react-bootstrap-icons";
 
 const SidebarHright = () => {
   const [expanded, setExpanded] = useState(false);

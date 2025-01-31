@@ -7,7 +7,7 @@ const MyNavbar = function () {
   const [profileImage, setProfileImage] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
-  const location = useLocation(); // Ottiene la pagina attuale
+  const location = useLocation();
 
   useEffect(() => {
     const fetchProfileImage = async () => {
@@ -35,7 +35,6 @@ const MyNavbar = function () {
     fetchProfileImage();
   }, []);
 
-  // Funzione per la search bar
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchTerm.trim() !== "") {
@@ -77,13 +76,9 @@ const MyNavbar = function () {
             )}
           </div>
 
-          {/* Toggle Navbar per mobile */}
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll" className="ms-auto">
-            {" "}
-            {/* Spinge tutto a destra */}
             <Nav className="d-flex align-items-center justify-content-end w-100">
-              {/* Link con icone */}
               <Nav.Link
                 as={Link}
                 to="/"
@@ -121,8 +116,6 @@ const MyNavbar = function () {
                 <i className="bi bi-bell-fill fs-5"></i>
                 <span>Notifiche</span>
               </Nav.Link>
-
-              {/* Dropdown Profilo */}
               <div className="d-flex align-items-center text-center me-3 mb-sm-2 profileDropdown">
                 {profileImage ? (
                   <img
@@ -152,8 +145,6 @@ const MyNavbar = function () {
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>
-
-              {/* Dropdown Altro */}
               <div className="d-flex align-items-center text-center">
                 <div className="d-inline">
                   <i className="bi bi-border-all fs-5 pe-sm-2"></i>
