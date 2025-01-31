@@ -87,46 +87,47 @@ function MyFooter() {
                   >
                     <span className="fw-bold">Domande?</span>
                   </a>
-                  <p className="ps-3" style={{ fontSize: "13px" }}>
+                  <p className="ps-4 ps-sm-0 " style={{ fontSize: "13px" }}>
                     visita il nostro centro assistenza
                   </p>
                 </li>
               </ul>
               <ul>
                 <li className=" list-group-item" style={{ fontSize: "16px" }}>
-                  <i className="bi bi-gear"></i>
+                  <i className="bi bi-gear "></i>
                   <a
                     href="javascript:void(0)"
                     className="page-link ms-1 d-inline"
                   >
                     <span className="fw-bold">
-                      Gestisci il tuo account e la tua privacy{" "}
+                      Gestisci il tuo account e la tua privacy
                     </span>
                   </a>
-                  <p className="ps-4" style={{ fontSize: "13px" }}>
+                  <p className="ps-4 ps-sm-0 " style={{ fontSize: "13px" }}>
                     vai alle impostazioni
                   </p>
                 </li>
               </ul>
               <ul>
                 <li className=" list-group-item" style={{ fontSize: "16px" }}>
-                  <i className="bi bi-shield-shaded"></i>
+                  
+                  <i className="bi bi-shield-shaded "></i>
                   <a
                     href="javascript:void(0)"
                     className="page-link ms-1 d-inline"
                   >
-                    <span className="fw-bold">
-                      {" "}
+                    <span className="fw-bold ">
+                      
                       Trasparenza sui contenuti consigliati
                     </span>
                   </a>
-                  <p className="ps-4" style={{ fontSize: "13px" }}>
+                  <p className="ps-4 ps-sm-0 " style={{ fontSize: "13px" }}>
                     Scopri di più sui contenuti consigliati.
                   </p>
                 </li>
               </ul>
             </Col>
-            <Col xs={4}>
+            <Col sm={12} className="ps-sm-5">
               <p>Seleziona lingua</p>
               <DropdownButton
                 id="dropdown-basic-button"

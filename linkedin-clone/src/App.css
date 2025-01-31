@@ -53,35 +53,39 @@ body {
   border-right: solid 1px #d3d3d3;
 }
 
+@media (max-width: 576px) {
+  .profileDropdown {
+    border-right: none;
+  }
+}
 
-.side-text{  
-  font-size: 13px ;
+.side-text {
+  font-size: 13px;
 }
 
 .home-plus {
   position: absolute;
-  top: 25%;
-  left: 31%;
+  top: 27%;
+  left: 70px;
   font-size: 25px;
-  color: #0B66C2;
+  color: #0b66c2;
   background-color: white;
-  width: 25px;  
-  height: 25px; 
-  display: flex; 
+  width: 25px;
+  height: 25px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%; 
- 
-  cursor: pointer; 
-  padding: 0; 
+  border-radius: 50%;
+
+  cursor: pointer;
+  padding: 0;
 }
 
-.btn-home{  
-  background-color: #DFDEDA;
+.btn-home {
+  background-color: #dfdeda;
 }
 
 .sidebar-top {
-  background-color: black;
-  height: 70px;
-  
+  background-color: #d3dde6;
+  height: 80px;
 }

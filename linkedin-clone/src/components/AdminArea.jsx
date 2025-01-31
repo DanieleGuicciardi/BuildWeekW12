@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 import { Row, Col } from "react-bootstrap";
 import Info from "./Info";
 import AdminExperiences from "./AdminExperiences";
-import CreatePost from "./CreatePost";
+import MyPost from "./MyPost";
 import Friends from "./Friends";
 
 const AdminArea = () => {
@@ -67,12 +67,12 @@ const AdminArea = () => {
       <Col lg={8}>
         <Profile myProfile={myProfile} />
         <Info myProfile={myProfile} />
-        <CreatePost />
+        <MyPost />
         <AdminExperiences />
       </Col>
       <Col lg={4}>
         <Sidebar myProfile={myProfile} profiles={profiles} />
-        <Friends/>
+        <Friends />
       </Col>
     </Row>
   );
