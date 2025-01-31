@@ -1,4 +1,5 @@
-import { ListGroup, Button } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
+import { Trash } from "react-bootstrap-icons";
 
 const myAuthor = "3mx9g@e-record.com";
 
@@ -16,10 +17,10 @@ const Comments = ({ commentsToShow, postId, refreshComments }) => {
         }
       );
       if (response.ok) {
-        alert("La recensione è stata elimata!");
+        alert("Il commento è stato elimato!");
         refreshComments();
       } else {
-        throw new Error("La recensione non è stata eliminata!");
+        throw new Error("Il commento non è stato eliminato!");
       }
     } catch (error) {
       alert(error);
@@ -27,31 +28,46 @@ const Comments = ({ commentsToShow, postId, refreshComments }) => {
   };
 
   return (
-    <ListGroup style={{ color: "black" }} className="mt-2">
+    <ListGroup style={{ color: "black" }}>
+      {commentsToShow.filter((comment) => comment.elementId === postId).length >
+      0 ? (
+        <p className="mt-2 ms-3 mb-0 text-start ">
+          Commenti:{" "}
+          {
+            commentsToShow.filter((comment) => comment.elementId === postId)
+              .length
+          }
+        </p>
+      ) : (
+        <p className="mt-2 ms-3 mb-0 text-start">Commenti: 0</p>
+      )}
+      <p>{commentsToShow.lenght} </p>
       {commentsToShow
         .filter((comment) => comment.elementId === postId)
         .map((comment) => (
           <ListGroup.Item key={comment._id} className=" text-start text-break">
-            {comment.comment}
             {myAuthor === comment.author ? (
-              <Button
-                variant="danger"
-                className="ms-2"
-                onClick={() => deleteComment(comment._id)}
-              >
-                Elimina
-              </Button>
+              <div className=" d-inline float-end">
+                <Trash
+                  className="text-danger"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => deleteComment(comment._id)}
+                />
+              </div>
             ) : (
-              <>
-                <div className="text-secondary d-flex justify-content-between align-items-center m-0">
-                  <p className="m-0">{comment.author}</p>
-                  <p className="m-0">
-                    {comment.createdAt.slice(0, 10)} -{" "}
-                    {comment.createdAt.slice(12, 16)}
-                  </p>
-                </div>
-              </>
+              <></>
             )}
+            <>
+              <span>{comment.comment}</span>
+
+              <div className="text-secondary d-flex justify-content-between align-items-center m-0">
+                <p className="m-0">{comment.author}</p>
+                <p className="m-0">
+                  {comment.createdAt.slice(0, 10)} -{" "}
+                  {comment.createdAt.slice(12, 16)}
+                </p>
+              </div>
+            </>
           </ListGroup.Item>
         ))}
     </ListGroup>

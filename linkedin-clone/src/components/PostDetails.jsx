@@ -96,29 +96,52 @@ function Postdetails() {
               </Card>
             </Col>
           </Row>
-          {info.image ? (
-            <Row className="mt-4">
-              <Col>
-                <Card className="shadow-sm border-0">
-                  <Card.Body>
+
+          <Row className="mt-4">
+            <Container>
+              <Col className="d-flex justify-content-between align-items-baseline  rounded-2">
+                <Card className="shadow-sm border-0 d-inline w-50">
+                  <Card.Body className="w-100">
                     <Card.Title className="text-primary">
                       Immagine del post
                     </Card.Title>
-                    <Card.Img
-                      variant="top"
-                      src={info.image}
-                      alt="Post image"
-                      className=" w-50 "
-                    />
+                    {info.image ? (
+                      <Card.Img
+                        variant="top"
+                        src={info.image}
+                        alt="Post image"
+                        className="w-100"
+                      />
+                    ) : (
+                      ""
+                    )}
+                  </Card.Body>
+                </Card>
+                <Card className="shadow-sm border-0 d-inline w-50 h-100 ms-1">
+                  <Card.Body className="w-100 h-100">
+                    <Card.Title className="text-primary">Commenti</Card.Title>
+
+                    {comment ? (
+                      comment
+                        .filter((c) => c.elementId === postId)
+                        .map((c) => (
+                          <Card key={c._id} className="mb-2 shadow-sm border-0">
+                            <Card.Body className="p-3">
+                              <strong>{c.author}</strong>
+                              <p className="mb-0">{c.comment}</p>
+                            </Card.Body>
+                          </Card>
+                        ))
+                    ) : (
+                      <p>Nessun commento</p>
+                    )}
                   </Card.Body>
                 </Card>
               </Col>
-            </Row>
-          ) : (
-            ""
-          )}
+            </Container>
+          </Row>
 
-          <Row className="mt-4">
+          {/* <Row className="mt-4">
             <Col>
               <Card className="shadow-sm border-0">
                 <Card.Body>
@@ -137,7 +160,7 @@ function Postdetails() {
                 </Card.Body>
               </Card>
             </Col>
-          </Row>
+          </Row> */}
         </>
       ) : (
         <div className="text-center">

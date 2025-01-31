@@ -12,6 +12,7 @@ const Friends = () => {
     "67994c488e9ccd001520ac84",
     "679743ee16f6350015fecb7b",
     "6799f47cdbf20300152ae838",
+    "679cdd4230c48d001593b383",
   ];
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const Friends = () => {
   return (
     <div className="border border-1 border-secondary-subtle rounded-2 p-3 my-3 mx-2 bg-white">
       <Container>
-        <h4 className="mb-3">I tuoi amici</h4>
+        <h5 className="mb-3">I tuoi amici</h5>
         
         {loading ? (
           <div>Caricamento...</div>
