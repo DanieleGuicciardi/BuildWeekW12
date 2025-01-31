@@ -17,7 +17,7 @@ const MyNavbar = function () {
           {
             headers: {
               Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
             },
           }
         );
@@ -45,15 +45,17 @@ const MyNavbar = function () {
 
   return (
     <>
-      <Navbar expand="lg" className="bg-white sticky-top">
-        <Container>
-          {/* Logo */}
+      <Navbar expand="md" className="bg-white sticky-top ">
+        <Container className="justify-content-between">
           <Link to="/">
-            <img src={logo} alt="LinkedIn Logo" className="logo-linkedin me-3" />
+            <img
+              src={logo}
+              alt="LinkedIn Logo"
+              className="logo-linkedin me-3"
+            />
           </Link>
 
-          {/* Search Bar o div invisibile per mantenere la spaziatura */}
-          <div className="flex-grow-1 me-4">
+          <div className="flex-grow-1 me-3 w-50">
             {location.pathname !== "/jobs" ? (
               <Form className="d-flex w-100" onSubmit={handleSearch}>
                 <div className="input-group navbarSearchbar">
@@ -77,32 +79,51 @@ const MyNavbar = function () {
 
           {/* Toggle Navbar per mobile */}
           <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll" className="ms-auto"> {/* Spinge tutto a destra */}
+          <Navbar.Collapse id="navbarScroll" className="ms-auto">
+            {" "}
+            {/* Spinge tutto a destra */}
             <Nav className="d-flex align-items-center justify-content-end w-100">
               {/* Link con icone */}
-              <Nav.Link as={Link} to="/" className="d-flex flex-column align-items-center me-3">
+              <Nav.Link
+                as={Link}
+                to="/"
+                className="d-flex flex-column align-items-center me-3"
+              >
                 <i className="bi bi-house-door-fill fs-5"></i>
                 <span>Home</span>
               </Nav.Link>
-              <Nav.Link href="#action2" className="d-flex flex-column align-items-center me-3">
+              <Nav.Link
+                href="#action2"
+                className="d-flex flex-column align-items-center me-3"
+              >
                 <i className="bi bi-people-fill fs-5"></i>
                 <span>Rete</span>
               </Nav.Link>
-              <Nav.Link as={Link} to="/jobs" className="d-flex flex-column align-items-center me-3">
+              <Nav.Link
+                as={Link}
+                to="/jobs"
+                className="d-flex flex-column align-items-center me-3"
+              >
                 <i className="bi bi-duffle-fill fs-5"></i>
                 <span>Lavoro</span>
               </Nav.Link>
-              <Nav.Link href="#action4" className="d-flex flex-column align-items-center me-3">
+              <Nav.Link
+                href="#action4"
+                className="d-flex flex-column align-items-center me-3"
+              >
                 <i className="bi bi-chat-dots-fill fs-5"></i>
                 <span>Messaggistica</span>
               </Nav.Link>
-              <Nav.Link href="#action5" className="d-flex flex-column align-items-center me-3">
+              <Nav.Link
+                href="#action5"
+                className="d-flex flex-column align-items-center me-3"
+              >
                 <i className="bi bi-bell-fill fs-5"></i>
                 <span>Notifiche</span>
               </Nav.Link>
 
               {/* Dropdown Profilo */}
-              <div className="d-flex align-items-center text-center me-3 profileDropdown">
+              <div className="d-flex align-items-center text-center me-3 mb-sm-2 profileDropdown">
                 {profileImage ? (
                   <img
                     src={profileImage}
@@ -116,28 +137,36 @@ const MyNavbar = function () {
                     }}
                   />
                 ) : (
-                  <i className="bi bi-person-circle fs-5"></i>
+                  <i className="bi bi-person-circle fs-5 pe-sm-2"></i>
                 )}
                 <NavDropdown title="Tu">
                   <NavDropdown.Item as={Link} to="/profile">
                     Profilo
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action4">
+                    Another action
+                  </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+                  <NavDropdown.Item href="#action5">
+                    Something else here
+                  </NavDropdown.Item>
                 </NavDropdown>
               </div>
 
               {/* Dropdown Altro */}
               <div className="d-flex align-items-center text-center">
                 <div className="d-inline">
-                  <i className="bi bi-border-all fs-5"></i>
+                  <i className="bi bi-border-all fs-5 pe-sm-2"></i>
                 </div>
                 <NavDropdown title="Altro">
                   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action4">
+                    Another action
+                  </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+                  <NavDropdown.Item href="#action5">
+                    Something else here
+                  </NavDropdown.Item>
                 </NavDropdown>
               </div>
             </Nav>

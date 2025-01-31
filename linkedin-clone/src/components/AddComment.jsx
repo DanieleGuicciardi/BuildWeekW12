@@ -30,7 +30,7 @@ const AddComment = ({ postId, showInputComment, refreshComments }) => {
         }
       );
       if (response.ok) {
-        alert("Recensione inviata!");
+        alert("Commento inviato!");
         setComment({
           comment: "",
           rate: 1,
@@ -48,25 +48,26 @@ const AddComment = ({ postId, showInputComment, refreshComments }) => {
   return (
     <>
     {showInputComment && (
-      <Form className="my-3" onSubmit={sendComment}>
-        <Form.Group className="mb-2">
-          <Form.Label>Commento</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Inserisci il tuo commento"
-            value={comment.comment}
-            onChange={(e) =>
-              setComment({
-                ...comment,
-                comment: e.target.value,
-              })
-            }
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Invia
-        </Button>
-      </Form>
+      <Form className="my-3" onSubmit={sendComment} style={{ maxWidth: "400px", margin: "0 auto" }}>
+      <Form.Group className="mb-2">
+        <Form.Control
+          type="text"
+          placeholder="Scrivi un commento..."
+          value={comment.comment}
+          onChange={(e) =>
+            setComment({
+              ...comment,
+              comment: e.target.value,
+            })
+          }
+          className="border-0 border-bottom p-2"
+          style={{ outline: "none", boxShadow: "none" }}
+        />
+      </Form.Group>
+      <Button variant="primary" type="submit" className="w-100">
+        Invia
+      </Button>
+    </Form>
     )}
     </>
   );

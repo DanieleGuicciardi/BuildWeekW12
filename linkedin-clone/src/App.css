@@ -23,6 +23,11 @@ body {
   cursor: pointer;
 }
 
+.myPencil {
+  width: 20px;
+  height: 20px;
+}
+
 .sidebarButton:hover {
   border: 1px solid #000000 !important;
   background-color: #c2c2c23e !important;
@@ -53,6 +58,12 @@ body {
   border-right: solid 1px #d3d3d3;
 }
 
+@media (max-width: 576px) {
+  .profileDropdown {
+    border-right: none;
+  }
+}
+
 .side-text {
   font-size: 13px;
 }
@@ -60,7 +71,7 @@ body {
 .home-plus {
   position: absolute;
   top: 27%;
-  left: 25%;
+  left: 70px;
   font-size: 25px;
   color: #0b66c2;
   background-color: white;
@@ -80,6 +91,6 @@ body {
 }
 
 .sidebar-top {
-  background-color: black;
-  height: 70px;
+  background-color: #d3dde6;
+  height: 80px;
 }

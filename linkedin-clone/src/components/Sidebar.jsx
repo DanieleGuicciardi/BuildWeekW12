@@ -1,18 +1,19 @@
 import { Container } from "react-bootstrap";
-import { Pencil, PersonPlusFill } from "react-bootstrap-icons";
+import { PersonPlusFill } from "react-bootstrap-icons";
 
 const Sidebar = ({ myProfile, profiles }) => {
   return (
     <>
       {myProfile && (
-        <div className="border border-1 border-secondary-subtle rounded-2 profileSidebar">
+        <div className="border border-1 border-secondary-subtle rounded-2 profileSidebar pt-3">
           <Container>
             <div className="d-flex justify-content-between">
               <div>
                 <h5>Lingua del profilo</h5>
                 <p>Italiano</p>
               </div>
-              <Pencil className=" fs-4" />
+              {/* <Pencil className=" myPencil" /> */}
+              <i className="bi bi-pencil myPencil fs-5"></i>
             </div>
             <hr className=" mb-4" />
             <div className="d-flex justify-content-between">
@@ -22,15 +23,16 @@ const Sidebar = ({ myProfile, profiles }) => {
                   www.linkedin.com/{myProfile.username}/{myProfile._id}
                 </p>
               </div>
-              <Pencil className=" fs-4" />
+              {/* <Pencil className=" myPencil" /> */}
+              <i className="bi bi-pencil myPencil fs-5"></i>
             </div>
           </Container>
         </div>
       )}
       {profiles && (
-        <div className="border border-1 border-secondary-subtle rounded-2 p-2 mt-3 bg-white">
+        <div className="border border-1 border-secondary-subtle rounded-2 p-2 mt-3 mx-2 bg-white">
           <Container>
-            <h6>Persone che potresti conoscere</h6>
+            <h5>Persone che potresti conoscere</h5>
             <p className="text-secondary">Dal tuo settore</p>
             <div className="d-flex  align-items-start">
               <img

@@ -6,7 +6,6 @@ const CommentArea = ({ postId, showInputComment, selectedComment }) => {
   const [comments, setComments] = useState([]);
 
   const getComments = async () => {
-    //setIsLoading(true)
     try {
       let response = await fetch(
         `https://striveschool-api.herokuapp.com/api/comments/`,
@@ -21,17 +20,12 @@ const CommentArea = ({ postId, showInputComment, selectedComment }) => {
       if (response.ok) {
         let comments = await response.json();
         setComments(comments);
-        //setIsLoading(false)
-        //setIsError(false)
+
       } else {
         console.log("error");
-        //setIsLoading(false)
-        //setIsError(true)
       }
     } catch (error) {
       console.log(error);
-      //setIsLoading(false)
-      //setIsError(true)
     }
   };
 
@@ -41,8 +35,6 @@ const CommentArea = ({ postId, showInputComment, selectedComment }) => {
 
   return (
     <div className="text-center">
-      {/*{isLoading && <Loading />}
-      {isError && <Error />}*/}
       <AddComment
         postId={selectedComment}
         showInputComment={showInputComment}

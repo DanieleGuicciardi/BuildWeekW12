@@ -41,9 +41,9 @@ const Friends = () => {
   }, []);
 
   return (
-    <div className="border border-1 border-secondary-subtle rounded-2 p-3 my-3 bg-white">
+    <div className="border border-1 border-secondary-subtle rounded-2 p-3 my-3 mx-2 bg-white">
       <Container>
-        <h4 className="mb-3">I tuoi amici</h4>
+        <h5 className="mb-3">I tuoi amici</h5>
         
         {loading ? (
           <div>Caricamento...</div>
