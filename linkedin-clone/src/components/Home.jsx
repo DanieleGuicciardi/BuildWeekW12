@@ -214,10 +214,12 @@ function Home() {
     } catch (error) {
       console.log(error);
     }
-    const loadMorePosts = () => {
-      setPostLimit((prevLimit) => prevLimit + 15);
-    };
   };
+
+  const loadMorePosts = () => {
+    setPostLimit(prevLimit => prevLimit + 15);
+  };
+
   useEffect(() => {
     getPost();
   }, [postLimit]);
@@ -318,6 +320,11 @@ function Home() {
           <SidebarHright />
         </Col>
       </Row>
+      <Container className="text-center my-3">
+        <Button onClick={loadMorePosts} variant="primary">
+          Vedi altro
+        </Button>
+      </Container>
       {/* <Modal show={showModal} onHide={handleCloseModal} centered>
             {posts && (
               <div>
