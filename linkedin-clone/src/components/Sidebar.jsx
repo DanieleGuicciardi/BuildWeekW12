@@ -5,7 +5,7 @@ const Sidebar = ({ myProfile, profiles }) => {
   return (
     <>
       {myProfile && (
-        <div className="border border-1 border-secondary-subtle p-3 rounded-2 profileSidebar mx-2">
+        <div className="border border-1 border-secondary-subtle rounded-2 profileSidebar pt-3">
           <Container>
             <div className="d-flex justify-content-between">
               <div>
