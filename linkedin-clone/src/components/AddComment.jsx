@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 
 const AddComment = ({ postId, showInputComment, refreshComments }) => {
   const [comment, setComment] = useState({
@@ -7,6 +7,7 @@ const AddComment = ({ postId, showInputComment, refreshComments }) => {
     rate: 1,
     elementId: null,
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     setComment((c) => ({
@@ -17,6 +18,14 @@ const AddComment = ({ postId, showInputComment, refreshComments }) => {
 
   const sendComment = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
+    
+    if (!comment.comment.trim()) {
+      alert("Il commento non può essere vuoto!");
+      return;
+    }
+
+    setIsSubmitting(true);
     try {
       let response = await fetch(
         "https://striveschool-api.herokuapp.com/api/comments",
@@ -29,6 +38,7 @@ const AddComment = ({ postId, showInputComment, refreshComments }) => {
           },
         }
       );
+      
       if (response.ok) {
         alert("Commento inviato!");
         setComment({
@@ -41,34 +51,38 @@ const AddComment = ({ postId, showInputComment, refreshComments }) => {
         throw new Error("Qualcosa è andato storto");
       }
     } catch (error) {
-      alert(error);
+      console.error("Errore durante l'invio del commento:", error);
+      alert("Si è verificato un errore durante l'invio del commento. Riprova.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <>
-    {showInputComment && (
-      <Form className="my-3" onSubmit={sendComment} style={{ maxWidth: "400px", margin: "0 auto" }}>
-      <Form.Group className="mb-2">
-        <Form.Control
-          type="text"
-          placeholder="Scrivi un commento..."
-          value={comment.comment}
-          onChange={(e) =>
-            setComment({
-              ...comment,
-              comment: e.target.value,
-            })
-          }
-          className="border-0 border-bottom p-2"
-          style={{ outline: "none", boxShadow: "none" }}
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit" className="w-100">
-        Invia
-      </Button>
-    </Form>
-    )}
+      {showInputComment && (
+        <Form className="my-3" onSubmit={sendComment} style={{ maxWidth: "400px", margin: "0 auto" }}>
+          <Form.Group className="mb-2">
+            <Form.Control
+              type="text"
+              placeholder="Scrivi un commento..."
+              value={comment.comment}
+              onChange={(e) =>
+                setComment({
+                  ...comment,
+                  comment: e.target.value,
+                })
+              }
+              className="border-0 border-bottom p-2"
+              style={{ outline: "none", boxShadow: "none" }}
+              disabled={isSubmitting}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit" className="w-100" disabled={isSubmitting}>
+            {isSubmitting ? <Spinner animation="border" size="sm" /> : "Invia"}
+          </Button>
+        </Form>
+      )}
     </>
   );
 };
