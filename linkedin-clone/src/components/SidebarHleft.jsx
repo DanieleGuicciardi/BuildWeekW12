@@ -33,7 +33,7 @@ const SidebarHleft = function () {
   return (
     <>
       <Card className="mt-3">
-        <div className="bg-secondary sidebar-top mb-4 ps-2 ">
+        <div className="sidebar-top mb-4 ps-2">
           <Card.Img
             className=" "
             style={{
