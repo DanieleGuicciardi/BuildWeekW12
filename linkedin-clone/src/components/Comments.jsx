@@ -31,7 +31,7 @@ const Comments = ({ commentsToShow, postId, refreshComments }) => {
     <ListGroup style={{ color: "black" }}>
       {commentsToShow.filter((comment) => comment.elementId === postId).length >
       0 ? (
-        <p className="m-0">
+        <p className="mt-1 ms-1 text-start ">
           Commenti:{" "}
           {
             commentsToShow.filter((comment) => comment.elementId === postId)
@@ -39,7 +39,7 @@ const Comments = ({ commentsToShow, postId, refreshComments }) => {
           }
         </p>
       ) : (
-        <p className="m-0">Commenti: 0</p>
+        <p className="mt-1 ms-1 text-start">Commenti: 0</p>
       )}
       <p>{commentsToShow.lenght} </p>
       {commentsToShow
