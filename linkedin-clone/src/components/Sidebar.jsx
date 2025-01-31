@@ -12,7 +12,6 @@ const Sidebar = ({ myProfile, profiles }) => {
                 <h5>Lingua del profilo</h5>
                 <p>Italiano</p>
               </div>
-              {/* <Pencil className=" myPencil" /> */}
               <i className="bi bi-pencil myPencil fs-5"></i>
             </div>
             <hr className=" mb-4" />
@@ -23,7 +22,6 @@ const Sidebar = ({ myProfile, profiles }) => {
                   www.linkedin.com/{myProfile.username}/{myProfile._id}
                 </p>
               </div>
-              {/* <Pencil className=" myPencil" /> */}
               <i className="bi bi-pencil myPencil fs-5"></i>
             </div>
           </Container>

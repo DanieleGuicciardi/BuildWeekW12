@@ -1,6 +1,5 @@
 import { Card, Button } from "react-bootstrap";
 import { useState } from "react";
-import { Newspaper } from "react-bootstrap-icons";
 
 const SidebarHright = () => {
   const [expanded, setExpanded] = useState(false);
@@ -24,7 +23,6 @@ const SidebarHright = () => {
     <Card className="mt-3 border-0 shadow-sm rounded">
       <Card.Body>
         <Card.Title className="d-flex align-items-center mb-3">
-          <Newspaper className="me-2 text-primary" size={20} />
           Notizie principali
         </Card.Title>
 

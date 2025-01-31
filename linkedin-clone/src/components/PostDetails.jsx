@@ -140,27 +140,6 @@ function Postdetails() {
               </Col>
             </Container>
           </Row>
-
-          {/* <Row className="mt-4">
-            <Col>
-              <Card className="shadow-sm border-0">
-                <Card.Body>
-                  <Card.Title className="text-primary">Commenti</Card.Title>
-
-                  {comment
-                    .filter((c) => c.elementId === postId)
-                    .map((c) => (
-                      <Card key={c._id} className="mb-2 shadow-sm border-0">
-                        <Card.Body className="p-3">
-                          <strong className="text-info">{c.author}</strong>
-                          <p className="mb-0">{c.comment}</p>
-                        </Card.Body>
-                      </Card>
-                    ))}
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row> */}
         </>
       ) : (
         <div className="text-center">
