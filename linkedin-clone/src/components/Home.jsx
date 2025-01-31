@@ -20,6 +20,7 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [show, setShow] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const [editId, setEditId] = useState(null);
   const [img, setImg] = useState(null);
   const [myProfile, setMyProfile] = useState("");
@@ -47,15 +48,19 @@ function Home() {
         const datas = result.reverse();
 
         setPosts(datas.slice(0, postLimit));
-
+        setIsError(false);
         setIsLoading(false);
 
         console.log("Post caricati: ", datas.slice(0, postLimit));
       } else {
+        setIsError(true);
+        setIsLoading(false);
         throw new Error("Errore nel recupero dati");
       }
     } catch (error) {
       console.log(error);
+      setIsError(true);
+      setIsLoading(false);
     }
   };
 
@@ -330,6 +335,10 @@ function Home() {
             <Alert variant="success" className="my-2">
               Post pubblicato con successo !!
             </Alert>
+          )}
+
+          {isError && (
+            <Alert variant="danger">Errore nel caricamento dati..</Alert>
           )}
 
           {isLoading && (
