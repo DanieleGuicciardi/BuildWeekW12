@@ -7,7 +7,7 @@ import {
   Card,
   Modal,
   Form,
-  Image
+  Image,
 } from "react-bootstrap";
 import { useState } from "react";
 
@@ -40,11 +40,11 @@ function Profile({ myProfile }) {
   const resetForm = () => {
     setFormData({
       name: "",
-    surname: "",
-    email: "",
-    bio: "",
-    title: "",
-    area: "",
+      surname: "",
+      email: "",
+      bio: "",
+      title: "",
+      area: "",
     });
   };
 
@@ -116,9 +116,8 @@ function Profile({ myProfile }) {
 
   return (
     <Container
-      className="nav-space"
+      className="nav-space bg-white border"
       style={{
-        backgroundColor: "#f9f9f9",
         borderRadius: "10px",
       }}
     >

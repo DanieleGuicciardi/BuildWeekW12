@@ -33,7 +33,7 @@ const Comments = ({ commentsToShow, postId, refreshComments }) => {
         .map((comment) => (
           <ListGroup.Item
             key={comment._id}
-            className="d-flex justify-content-between align-items-center"
+            className="d-flex justify-content-between align-items-center text-break"
           >
             {comment.comment}
             {myAuthor === comment.author ? (
