@@ -43,7 +43,6 @@ body {
 .profileSidebar {
   margin-top: 10px;
   background-color: white;
- 
 }
 
 .navbarSearchbar {
@@ -52,6 +51,12 @@ body {
 
 .profileDropdown {
   border-right: solid 1px #d3d3d3;
+}
+
+@media (max-width: 576px) {
+  .profileDropdown {
+    border-right: none;
+  }
 }
 
 .side-text {

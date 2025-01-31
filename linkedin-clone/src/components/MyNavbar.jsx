@@ -102,7 +102,7 @@ const MyNavbar = function () {
               </Nav.Link>
 
               {/* Dropdown Profilo */}
-              <div className="d-flex align-items-center text-center me-3 profileDropdown">
+              <div className="d-flex align-items-center text-center me-3 mb-sm-2 profileDropdown">
                 {profileImage ? (
                   <img
                     src={profileImage}
@@ -116,7 +116,7 @@ const MyNavbar = function () {
                     }}
                   />
                 ) : (
-                  <i className="bi bi-person-circle fs-5"></i>
+                  <i className="bi bi-person-circle fs-5 pe-sm-2"></i>
                 )}
                 <NavDropdown title="Tu">
                   <NavDropdown.Item as={Link} to="/profile">
@@ -131,7 +131,7 @@ const MyNavbar = function () {
               {/* Dropdown Altro */}
               <div className="d-flex align-items-center text-center">
                 <div className="d-inline">
-                  <i className="bi bi-border-all fs-5"></i>
+                  <i className="bi bi-border-all fs-5 pe-sm-2"></i>
                 </div>
                 <NavDropdown title="Altro">
                   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
