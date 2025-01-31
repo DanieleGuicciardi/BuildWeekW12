@@ -30,7 +30,7 @@ const AddComment = ({ postId, showInputComment, refreshComments }) => {
         }
       );
       if (response.ok) {
-        alert("Recensione inviata!");
+        alert("Commento inviato!");
         setComment({
           comment: "",
           rate: 1,
