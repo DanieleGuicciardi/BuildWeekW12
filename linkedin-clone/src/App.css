@@ -94,3 +94,25 @@ body {
   background-color: #d3dde6;
   height: 80px;
 }
+
+.news-link {
+  text-decoration: none;
+  color: #0a66c2; 
+  font-weight: 500;
+}
+
+.news-link:hover {
+  text-decoration: underline;
+  color: #004182;
+}
+
+.toggle-button {
+  font-size: 14px;
+  color: #666;
+  text-decoration: none;
+}
+
+.toggle-button:hover {
+  text-decoration: underline;
+  color: #0a66c2;
+}
