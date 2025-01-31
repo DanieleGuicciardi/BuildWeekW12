@@ -101,7 +101,11 @@ const HomePosts = ({ posts, deletePost, modifyPost }) => {
           </div>
         </div>
       </Card.Footer>
-      <CommentArea postId={posts._id} showInputComment={showInputComment} selectedComment={selectedComment}/>
+      <CommentArea
+        postId={posts._id}
+        showInputComment={showInputComment}
+        selectedComment={selectedComment}
+      />
     </Card>
   );
 };

@@ -1,7 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-import { Alert, Container, Row, Spinner, Col, Form, Modal, Button } from "react-bootstrap";
+import {
+  Alert,
+  Container,
+  Row,
+  Spinner,
+  Col,
+  Form,
+  Modal,
+  Button,
+} from "react-bootstrap";
 import HomePosts from "./HomePosts";
 import SidebarHleft from "./SidebarHleft";
 import SidebarHright from "./SidebarHright";
@@ -13,7 +22,9 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [editId, setEditId] = useState(null);
   const [img, setImg] = useState(null);
+  const [myProfile, setMyProfile] = useState("");
   const [postLimit, setPostLimit] = useState(15);
+
 
   const getPost = async () => {
     try {
@@ -167,6 +178,7 @@ function Home() {
       );
       if (response.ok) {
         console.log("Esperienza aggiunta con successo!");
+        setImg("");
       } else {
         throw new Error("Errore durante l'invio dell'esperienza.");
       }
@@ -182,12 +194,34 @@ function Home() {
     }
   };
 
+  const getMyProfile = async () => {
+    try {
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/me",
+        {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
+          },
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        setMyProfile(data);
+        console.log("Mio Profilo:", data);
+      } else {
+        throw new Error("Errore nel recupero dati..");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   const loadMorePosts = () => {
     setPostLimit(prevLimit => prevLimit + 15);
   };
 
   useEffect(() => {
     getPost();
+    getMyProfile();
   }, [postLimit]);
 
   return (
@@ -202,25 +236,50 @@ function Home() {
           <form onSubmit={handleSubmit} className="my-4">
             <div className="bg-white rounded-2 p-2">
               <h3>Crea un post</h3>
-              <div className="input-group bg-white mt-3">
-                <input
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  className="form-control w-100"
-                  placeholder="Dicci a cosa stai pensando"
-                  aria-label="Dicci a cosa stai pensando"
-                />
-                <input
-                  type="file"
-                  onChange={handleImageChange}
-                  className="form-control w-100 my-1"
-                  placeholder="Inserisci un'immagine al tuo post"
-                  aria-label="Inserisci un'immagine al tuo post"
-                />
-                <button type="submit" className="btn btn-primary">
-                  {editId ? "Modifica" : "Invia"}
-                </button>
+
+              <div className="card p-3 shadow-sm mt-3">
+                <div className="d-flex align-items-center mb-2">
+                  <img
+                    src={myProfile.image}
+                    alt="User Avatar"
+                    className="rounded-circle me-2"
+                    width="40"
+                    height="40"
+                  />
+                  <input
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    className="form-control rounded-pill"
+                    placeholder="Di cosa vuoi parlare?"
+                    aria-label="Di cosa vuoi parlare?"
+                  />
+                </div>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="d-flex align-items-center">
+                    <input
+                      type="file"
+                      onChange={handleImageChange}
+                      className="d-none"
+                      id="fileInput"
+                    />
+                    <label
+                      htmlFor="fileInput"
+                      className="text-primary cursor-pointer me-2"
+                    >
+                      📷 <span> Aggiungi immagine</span>
+                    </label>
+                    {img && (
+                      <span className="text-muted small">{img.name}</span>
+                    )}
+                  </div>
+                  <button
+                    type="submit"
+                    className="btn btn-primary rounded-pill px-4"
+                  >
+                    {editId ? "Modifica" : "Pubblica"}
+                  </button>
+                </div>
               </div>
             </div>
           </form>
@@ -237,6 +296,27 @@ function Home() {
             </div>
           )}
 
+          {posts && (
+            <div>
+              {posts.map((posts) => (
+                <HomePosts
+                  key={posts._id}
+                  posts={posts}
+                  deletePost={deletePost}
+                  modifyPost={() => {
+                    setEditId(posts._id);
+                    setInput(posts.text);
+                  }}
+                />
+              ))}
+            </div>
+          )}
+        </Col>
+        <Col lg={3}>
+          <SidebarHright />
+        </Col>
+      </Row>
+      {/* <Modal show={showModal} onHide={handleCloseModal} centered>
             {posts && (
               <div>
                 {posts.map((posts) => (
@@ -297,7 +377,7 @@ function Home() {
           </Form>
         </Modal.Body>
       </Modal> */}
-      </Container>
+    </Container>
   );
 }
 
