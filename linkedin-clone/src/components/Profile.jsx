@@ -114,6 +114,18 @@ function Profile({ myProfile }) {
     }
   };
 
+  const handleOpenModal = () => {
+    setFormData({
+      name: myProfile.name || "",
+      surname: myProfile.surname || "",
+      email: myProfile.email || "",
+      bio: myProfile.bio || "",
+      title: myProfile.title || "",
+      area: myProfile.area || "",
+    });
+    setShowModal(true);
+  };
+
   return (
     <Container>
       <Container
@@ -227,7 +239,7 @@ function Profile({ myProfile }) {
               style={{
                 fontSize: "16px",
               }}
-              onClick={() => setShowModal(true)}
+              onClick={handleOpenModal}
             >
               <i className="bi bi-pencil fs-5"></i>
             </Button>
