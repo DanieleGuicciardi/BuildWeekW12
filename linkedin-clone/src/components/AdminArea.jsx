@@ -11,55 +11,43 @@ const AdminArea = () => {
   const [profiles, setProfile] = useState("");
   const [myProfile, setMyProfile] = useState("");
 
-  const getProfile = async () => {
+  const getProfilesData = async () => {
     try {
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
-        {
+      const [profileRes, myProfileRes] = await Promise.all([
+        fetch("https://striveschool-api.herokuapp.com/api/profile/", {
           headers: {
             Authorization:
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
           },
-        }
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setProfile(data);
-        console.log("Profili:", data);
-      } else {
-        throw new Error("Errore nel recupero dati..");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+        }),
+        fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
+          },
+        }),
+      ]);
 
-  const getMyProfile = async () => {
-    try {
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/me",
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk3NDNlZTE2ZjYzNTAwMTVmZWNiN2IiLCJpYXQiOjE3Mzc5NjY1NzQsImV4cCI6MTczOTE3NjE3NH0.ecbfCfnccTYR1ELq9AmO_yfP1Qa1s7IFzSArRl_KadE",
-          },
-        }
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setMyProfile(data);
-        console.log("Mio Profilo:", data);
-      } else {
+      if (!profileRes.ok || !myProfileRes.ok) {
         throw new Error("Errore nel recupero dati..");
       }
+
+      const profileData = await profileRes.json();
+      const myProfileData = await myProfileRes.json();
+
+      setProfile(profileData);
+      setMyProfile(myProfileData);
+
+      console.log("Profili:", profileData);
+      console.log("Mio Profilo:", myProfileData);
     } catch (error) {
-      console.log(error);
+      console.error("Errore nel recupero dati:", error);
+      alert("Errore nel recupero dei dati. Riprova.");
     }
   };
 
   useEffect(() => {
-    getProfile();
-    getMyProfile();
+    getProfilesData();
   }, []);
 
   return (
