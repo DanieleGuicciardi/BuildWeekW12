@@ -53,7 +53,7 @@ const MyNavbar = function () {
             <img src={logo} alt="LinkedIn Logo" className="logo-linkedin me-3" />
           </Link>
 
-          <div className="flex-grow-1 me-4">
+          <div className="flex-grow-1 me-3 w-50">
             {location.pathname !== "/jobs" ? (
               <Form className="d-flex w-100" onSubmit={handleSearch}>
                 <div className="input-group navbarSearchbar">
