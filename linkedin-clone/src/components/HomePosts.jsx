@@ -20,8 +20,14 @@ const HomePosts = ({ posts, deletePost, modifyPost }) => {
   const myId = "679743ee16f6350015fecb7b";
   const navigate = useNavigate();
 
-  const changeSelectedComment = (postId) => {
-    setSelectedComment(postId);
+  const toggleCommentSection = (postId) => {
+    if (selectedComment === postId) {
+      setShowInputComment(false);
+      setSelectedComment(null);
+    } else {
+      setSelectedComment(postId);
+      setShowInputComment(true);
+    }
   };
 
   return (
@@ -81,21 +87,27 @@ const HomePosts = ({ posts, deletePost, modifyPost }) => {
       />
       <Card.Footer>
         <div className="d-flex justify-content-around text-muted">
-          <div className="d-flex align-items-center">
+          <div
+            className="d-flex align-items-center"
+            style={{ cursor: "pointer" }}
+          >
             <HandThumbsUp className="me-2" />
             <span>Mi piace</span>
           </div>
           <div
             className="d-flex align-items-center"
             onClick={() => {
-              changeSelectedComment(posts._id);
-              setShowInputComment(true);
+              toggleCommentSection(posts._id);
             }}
+            style={{ cursor: "pointer" }}
           >
             <ChatDots className="me-2" />
             <span>Commenta</span>
           </div>
-          <div className="d-flex align-items-center">
+          <div
+            className="d-flex align-items-center"
+            style={{ cursor: "pointer" }}
+          >
             <Share className="me-2" />
             <span>Condividi</span>
           </div>
