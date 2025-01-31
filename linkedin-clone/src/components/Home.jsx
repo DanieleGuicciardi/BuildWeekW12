@@ -25,7 +25,6 @@ function Home() {
   const [myProfile, setMyProfile] = useState("");
   const [postLimit, setPostLimit] = useState(15);
 
-
   const getPost = async () => {
     try {
       const response = await fetch(
@@ -215,14 +214,17 @@ function Home() {
     } catch (error) {
       console.log(error);
     }
-  const loadMorePosts = () => {
-    setPostLimit(prevLimit => prevLimit + 15);
+    const loadMorePosts = () => {
+      setPostLimit((prevLimit) => prevLimit + 15);
+    };
   };
-
   useEffect(() => {
     getPost();
-    getMyProfile();
   }, [postLimit]);
+
+  useEffect(() => {
+    getMyProfile();
+  }, []);
 
   return (
     <Container>
