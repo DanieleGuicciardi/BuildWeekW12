@@ -23,6 +23,11 @@ body {
   cursor: pointer;
 }
 
+.myPencil {
+  width: 20px;
+  height: 20px;
+}
+
 .sidebarButton:hover {
   border: 1px solid #000000 !important;
   background-color: #c2c2c23e !important;

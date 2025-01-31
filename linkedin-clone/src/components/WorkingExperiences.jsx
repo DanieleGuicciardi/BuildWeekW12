@@ -15,14 +15,11 @@ const WorkExperience = ({
     <Card className="mb-3" key={experiences._id}>
       <Card.Body>
         <Card.Text>
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center justify-content-between">
+            <p className="m-0">
+              <b>Ruolo:</b> {experiences.role}
+            </p>
             <div>
-            <h6 className="mb-0 fw-bold">{experiences.role}</h6>
-            <small className="text-muted">
-              {date1.toDateString()} - {date2.toDateString()}
-            </small>
-            </div>
-            <div className="ms-auto">
               <Trash
                 onClick={() => deleteExperience(experiences._id)}
                 style={{ cursor: "pointer", color: "red" }}
@@ -40,9 +37,20 @@ const WorkExperience = ({
             </div>
           </div>
         </Card.Text>
-        <Card.Text>{experiences.company}</Card.Text>
-        <Card.Text>{experiences.description}</Card.Text>
-        <Card.Text>{experiences.area}</Card.Text>
+        <Card.Text>
+          <p className="text-muted">
+            <b>Periodo:</b> {date1.toDateString()} - {date2.toDateString()}
+          </p>
+        </Card.Text>
+        <Card.Text>
+          <b>Azienda:</b> {experiences.company}
+        </Card.Text>
+        <Card.Text>
+          <b>Descrizione:</b> {experiences.description}
+        </Card.Text>
+        <Card.Text>
+          <b>Città:</b> {experiences.area}
+        </Card.Text>
       </Card.Body>
       <Card.Img
         variant="bottom"
