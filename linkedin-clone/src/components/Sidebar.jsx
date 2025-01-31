@@ -5,7 +5,7 @@ const Sidebar = ({ myProfile, profiles }) => {
   return (
     <>
       {myProfile && (
-        <div className="border border-1 border-secondary-subtle rounded-2 profileSidebar">
+        <div className="border border-1 border-secondary-subtle p-3 rounded-2 profileSidebar mx-2">
           <Container>
             <div className="d-flex justify-content-between">
               <div>
@@ -28,7 +28,7 @@ const Sidebar = ({ myProfile, profiles }) => {
         </div>
       )}
       {profiles && (
-        <div className="border border-1 border-secondary-subtle rounded-2 p-2 mt-3 bg-white">
+        <div className="border border-1 border-secondary-subtle rounded-2 p-2 mt-3 mx-2 bg-white">
           <Container>
             <h6>Persone che potresti conoscere</h6>
             <p className="text-secondary">Dal tuo settore</p>

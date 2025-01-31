@@ -46,7 +46,7 @@ const MyNavbar = function () {
 
   return (
     <>
-      <Navbar expand="lg" className="bg-white sticky-top">
+      <Navbar expand="md" className="bg-white sticky-top ">
         <Container className="justify-content-between">
 
           <Link to="/">
@@ -54,7 +54,7 @@ const MyNavbar = function () {
           </Link>
 
           {location.pathname !== "/jobs" && (
-          <Form className="d-flex flex-grow-1 me-4" onSubmit={handleSearch}>
+          <Form className="d-flex flex-grow-1 me-4 w-25" onSubmit={handleSearch}>
             <div className="input-group w-100 navbarSearchbar">
               <span className="input-group-text border-0 search">
                 <i className="bi bi-search"></i>
