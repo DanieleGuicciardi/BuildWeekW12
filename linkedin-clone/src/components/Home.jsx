@@ -48,7 +48,7 @@ function Home() {
         const datas = result.reverse();
 
         setPosts(datas.slice(0, postLimit));
-
+        setIsError(false);
         setIsLoading(false);
 
         console.log("Post caricati: ", datas.slice(0, postLimit));
